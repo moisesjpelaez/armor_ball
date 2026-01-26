@@ -1,0 +1,16 @@
+[submodule "Libraries/OimoPhysics"]
+	path = Libraries/OimoPhysics
+	url = https://github.com/armory3d/OimoPhysics.git
+[submodule "Libraries/oimo_module"]
+	path = Libraries/oimo_module
+	url = https://github.com/moisesjpelaez/oimo_module.git
+[submodule "Libraries/koui_editor"]
+	path = Libraries/koui_editor
+	url = https://github.com/moisesjpelaez/koui_editor.git
+[submodule "Subprojects/aura"]
+	path = Subprojects/aura
+	url = https://github.com/moisesjpelaez/aura.git
+[submodule "Subprojects/Koui"]
+	path = Subprojects/Koui
+	url = https://gitlab.com/moises.jpelaez/Koui.git
+	branch = runtime_theme_parser
