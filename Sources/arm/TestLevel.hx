@@ -33,7 +33,7 @@ class TestLevel extends iron.Trait {
 	}
 
 	function update() {
-		if (gamepad.started('b')) {
+		if (gamepad.started('x')) {
 			Scene.setActive(nextLevel);
 		}
 
