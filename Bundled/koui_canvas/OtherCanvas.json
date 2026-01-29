@@ -1,0 +1,62 @@
+{
+	"name": "OtherCanvas",
+	"version": "1.1",
+	"canvas": {
+		"width": 320,
+		"height": 240,
+		"settings": {
+			"expandOnResize": true,
+			"scaleOnResize": true,
+			"autoScale": true,
+			"scaleHorizontal": false,
+			"scaleVertical": false
+		},
+		"editor": {
+			"undoStackSize": 50
+		}
+	},
+	"scenes": [
+		{
+			"key": "Scene_1",
+			"active": true,
+			"elements": [
+				{
+					"key": "Label_1",
+					"type": "Label",
+					"tID": "title",
+					"posX": 0,
+					"posY": 0,
+					"width": 195,
+					"height": 32,
+					"anchor": 7,
+					"visible": true,
+					"disabled": false,
+					"parentKey": null,
+					"properties": {
+						"text": "Another Scene",
+						"alignmentHor": 0,
+						"alignmentVert": 0
+					}
+				},
+				{
+					"key": "score_label",
+					"type": "Label",
+					"tID": "_label",
+					"posX": -20,
+					"posY": 0,
+					"width": 48,
+					"height": 15,
+					"anchor": 2,
+					"visible": true,
+					"disabled": false,
+					"parentKey": null,
+					"properties": {
+						"text": "Score: 0",
+						"alignmentHor": 0,
+						"alignmentVert": 0
+					}
+				}
+			]
+		}
+	]
+}
