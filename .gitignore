@@ -2,6 +2,7 @@
 *.blend*
 !*.blend
 khafile.js
+_debug*
 build*
 Sources/Main.hx
 Sources/arm/node*
