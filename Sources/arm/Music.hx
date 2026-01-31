@@ -8,7 +8,6 @@ import kha.Sound;
 @:n64Autoload
 class Music {
     public static var volume(default, set): Float = 0.5;
-    static var currentVolume: Float = 0.5;
 
     static var menuMusic: Sound;
     static var menuMusicHandle: BaseChannelHandle;
@@ -41,14 +40,13 @@ class Music {
         currentHandle = handle;
 
         if (handle.finished) {
-            currentVolume = volume;
-            handle.setVolume(currentVolume);
+            handle.setVolume(volume);
             handle.play();
         }
     }
 
     static function stop(handle: BaseChannelHandle) {
-        tween.float(currentVolume, 0.0, 0.25, onTweenUpdate, onTweenDone);
+        tween.float(volume, 0.0, 0.25, onTweenUpdate, onTweenDone);
         tween.start();
     }
 
