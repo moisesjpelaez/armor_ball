@@ -7,7 +7,7 @@ import kha.Sound;
 
 @:n64Autoload
 class Music {
-    public static var volume(default, set): Float = 0.5;
+    public static var volume(default, set): Float = 1.0;
 
     static var menuMusic: Sound;
     static var menuMusicHandle: BaseChannelHandle;
@@ -25,10 +25,10 @@ class Music {
     public static function init() {
         Aura.mixChannels["music"].setVolume(volume);
 
-        menuMusic = Assets.sounds.heavy_heist;
+        menuMusic = Assets.sounds.menu;
         menuMusicHandle = Aura.createCompBufferChannel(menuMusic, true, Aura.mixChannels["music"]);
 
-        levelMusic = Assets.sounds.i_do_know;
+        levelMusic = Assets.sounds.level;
         levelMusicHandle = Aura.createCompBufferChannel(levelMusic, true, Aura.mixChannels["music"]);
 
         GameEvents.sceneLoaded.connect(onSceneLoaded);
