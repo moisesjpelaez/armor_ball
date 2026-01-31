@@ -31,6 +31,7 @@ class Init extends iron.Trait {
 
     function init() {
         Music.init();
+        SoundEffects.init();
         Scene.setActive(initialScene);
     }
 }
