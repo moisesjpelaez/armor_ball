@@ -1,6 +1,7 @@
 package arm;
 
 import armory.trait.internal.KouiCanvas;
+import iron.Scene;
 import iron.system.Input;
 import koui.elements.Label;
 
@@ -34,6 +35,11 @@ class Level extends GameScene {
 		if (gamepad.started('x')) {
 			removeUpdate(update);
 			loadScene(nextLevel);
+		}
+
+		if (gamepad.started('y')) {
+			removeUpdate(update);
+			loadScene(Scene.active.raw.name);
 		}
 
 		if (gamepad.started('a')) {
