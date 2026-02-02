@@ -55,6 +55,23 @@
 						"alignmentHor": 0,
 						"alignmentVert": 0
 					}
+				},
+				{
+					"key": "ImagePanel_1",
+					"type": "ImagePanel",
+					"tID": "_imagepanel",
+					"posX": 49,
+					"posY": 113,
+					"width": 64,
+					"height": 64,
+					"anchor": 0,
+					"visible": true,
+					"disabled": false,
+					"parentKey": null,
+					"properties": {
+						"imageName": "grid",
+						"scale": true
+					}
 				}
 			]
 		}
