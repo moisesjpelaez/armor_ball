@@ -1,4 +1,4 @@
-package arm;
+package arm.scenes;
 
 import armory.trait.internal.KouiCanvas;
 import iron.Scene;

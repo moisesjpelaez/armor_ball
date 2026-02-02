@@ -1,4 +1,4 @@
-package arm;
+package arm.player;
 
 import iron.math.Vec4;
 import iron.math.Vec2;

@@ -1,5 +1,7 @@
-package arm;
+package arm.scenes;
 
+import arm.autoloads.Music;
+import arm.autoloads.SoundEffects;
 import aura.Aura;
 import iron.Scene;
 import kha.Assets;

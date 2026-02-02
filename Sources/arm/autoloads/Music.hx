@@ -1,4 +1,4 @@
-package arm;
+package arm.autoloads;
 
 import armory.system.Tween;
 import aura.Aura;
