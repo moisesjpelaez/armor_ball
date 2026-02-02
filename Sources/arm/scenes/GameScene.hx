@@ -7,10 +7,8 @@ import kha.Color;
 import kha.graphics2.Graphics;
 
 class GameScene extends iron.Trait {
-	var tween: Tween = new Tween();
-
+	public var tween: Tween = new Tween();
 	var bgColor: Color = Color.Black;
-	var bgAlpha: Float = 1.0;
 
     public function new() {
         super();
@@ -26,15 +24,10 @@ class GameScene extends iron.Trait {
     }
 
     function init() {
-		tween.float(bgAlpha, 0.0, 0.5, function(value: Float) {
-			bgAlpha = value;
-			bgColor = Color.fromFloats(0.0, 0.0, 0.0, value);
-		}, function() {
-			bgAlpha = 0.0;
-			bgColor = Color.fromFloats(0.0, 0.0, 0.0, 0);
-			onTransitionFinished();
-			GameEvents.sceneStarted.emit();
-		}).start();
+        fadeOut(function() {
+            onTransitionFinished();
+            GameEvents.sceneStarted.emit();
+        });
 	}
 
     function render2D(g2: Graphics) {
@@ -47,12 +40,26 @@ class GameScene extends iron.Trait {
 
     public function loadScene(scene: String) {
         GameEvents.sceneChangeStarted.emit(scene);
-        tween.float(bgAlpha, 1.0, 0.5, function(value: Float) {
-            bgAlpha = value;
+        fadeIn(function() {
+            Scene.setActive(scene);
+        });
+    }
+
+    public function fadeIn(finishedCallback: Void->Void) {
+        tween.float(0.0, 1.0, 0.5, function(value: Float) {
             bgColor = Color.fromFloats(0.0, 0.0, 0.0, value);
         }, function() {
-            removeRender2D(render2D);
-            Scene.setActive(scene);
+            bgColor = Color.fromFloats(0.0, 0.0, 0.0, 1.0);
+            finishedCallback();
+        }).start();
+    }
+
+    public function fadeOut(finishedCallback: Void->Void) {
+        tween.float(1.0, 0.0, 0.5, function(value: Float) {
+            bgColor = Color.fromFloats(0.0, 0.0, 0.0, value);
+        }, function() {
+            bgColor = Color.fromFloats(0.0, 0.0, 0.0, 0.0);
+            finishedCallback();
         }).start();
     }
 

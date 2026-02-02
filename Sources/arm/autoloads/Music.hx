@@ -59,6 +59,7 @@ class Music {
     }
 
     static function onSceneChangeStarted() {
+        if (currentHandle == null) return;
         stop(currentHandle);
     }
 

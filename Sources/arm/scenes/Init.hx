@@ -7,7 +7,7 @@ import iron.Scene;
 import kha.Assets;
 
 class Init extends iron.Trait {
-    @prop var initialScene: String = "Test1";
+    @prop var initialScene: String = "Splash";
 
     public function new() {
         super();

@@ -1,0 +1,144 @@
+{
+	"name": "SplashCanvas",
+	"version": "1.1",
+	"canvas": {
+		"width": 320,
+		"height": 240,
+		"settings": {
+			"expandOnResize": true,
+			"scaleOnResize": true,
+			"autoScale": true,
+			"scaleHorizontal": false,
+			"scaleVertical": false
+		},
+		"editor": {
+			"undoStackSize": 50
+		}
+	},
+	"scenes": [
+		{
+			"key": "Scene_1",
+			"active": true,
+			"elements": [
+				{
+					"key": "moises_logo",
+					"type": "ImagePanel",
+					"tID": "_imagepanel",
+					"posX": 0,
+					"posY": 0,
+					"width": 96,
+					"height": 96,
+					"anchor": 4,
+					"visible": true,
+					"disabled": false,
+					"parentKey": null,
+					"properties": {
+						"imageName": "moises_logo",
+						"scale": true
+					}
+				},
+				{
+					"key": "armory",
+					"type": "AnchorPane",
+					"tID": "_fixed_anchorpane",
+					"posX": 0,
+					"posY": 0,
+					"width": 200,
+					"height": 140,
+					"anchor": 4,
+					"visible": false,
+					"disabled": false,
+					"parentKey": null,
+					"properties": {}
+				},
+				{
+					"key": "armory_logo",
+					"type": "ImagePanel",
+					"tID": "_imagepanel",
+					"posX": 0,
+					"posY": 0,
+					"width": 96,
+					"height": 96,
+					"anchor": 4,
+					"visible": true,
+					"disabled": false,
+					"parentKey": "armory",
+					"properties": {
+						"imageName": "ArmoryLogo",
+						"scale": true
+					}
+				},
+				{
+					"key": "Label_1",
+					"type": "Label",
+					"tID": "_label",
+					"posX": 0,
+					"posY": 0,
+					"width": 73,
+					"height": 15,
+					"anchor": 1,
+					"visible": true,
+					"disabled": false,
+					"parentKey": "armory",
+					"properties": {
+						"text": "Powered by",
+						"alignmentHor": 0,
+						"alignmentVert": 0
+					}
+				},
+				{
+					"key": "Label_2",
+					"type": "Label",
+					"tID": "_label",
+					"posX": 0,
+					"posY": 0,
+					"width": 66,
+					"height": 15,
+					"anchor": 7,
+					"visible": true,
+					"disabled": false,
+					"parentKey": "armory",
+					"properties": {
+						"text": "Armory 3D",
+						"alignmentHor": 0,
+						"alignmentVert": 0
+					}
+				},
+				{
+					"key": "libdragon_logo",
+					"type": "ImagePanel",
+					"tID": "_imagepanel",
+					"posX": 0,
+					"posY": 0,
+					"width": 171,
+					"height": 96,
+					"anchor": 4,
+					"visible": false,
+					"disabled": false,
+					"parentKey": null,
+					"properties": {
+						"imageName": "libdragon_logo",
+						"scale": true
+					}
+				},
+				{
+					"key": "tiny3d_logo",
+					"type": "ImagePanel",
+					"tID": "_imagepanel",
+					"posX": 0,
+					"posY": 0,
+					"width": 247,
+					"height": 96,
+					"anchor": 4,
+					"visible": false,
+					"disabled": false,
+					"parentKey": null,
+					"properties": {
+						"imageName": "tiny3d_logo",
+						"scale": true
+					}
+				}
+			]
+		}
+	]
+}
