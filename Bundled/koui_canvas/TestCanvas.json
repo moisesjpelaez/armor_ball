@@ -57,20 +57,101 @@
 					}
 				},
 				{
-					"key": "ImagePanel_1",
-					"type": "ImagePanel",
-					"tID": "_imagepanel",
-					"posX": 20,
-					"posY": 155,
-					"width": 64,
-					"height": 64,
-					"anchor": 0,
+					"key": "ColLayout_1",
+					"type": "ColLayout",
+					"tID": "_collayout",
+					"posX": 0,
+					"posY": 0,
+					"width": 150,
+					"height": 70,
+					"anchor": 7,
 					"visible": true,
 					"disabled": false,
 					"parentKey": null,
+					"properties": {}
+				},
+				{
+					"key": "ImagePanel_1",
+					"type": "ImagePanel",
+					"tID": "_imagepanel",
+					"posX": 0,
+					"posY": 0,
+					"width": 48,
+					"height": 48,
+					"anchor": 4,
+					"visible": true,
+					"disabled": false,
+					"parentKey": "ColLayout_1",
 					"properties": {
 						"imageName": "grid",
 						"scale": true
+					}
+				},
+				{
+					"key": "ImagePanel_2",
+					"type": "ImagePanel",
+					"tID": "_imagepanel",
+					"posX": 0,
+					"posY": 0,
+					"width": 32,
+					"height": 32,
+					"anchor": 4,
+					"visible": true,
+					"disabled": false,
+					"parentKey": "ColLayout_1",
+					"properties": {
+						"imageName": "grid",
+						"scale": true
+					}
+				},
+				{
+					"key": "RowLayout_1",
+					"type": "RowLayout",
+					"tID": "_rowlayout",
+					"posX": 0,
+					"posY": 0,
+					"width": 70,
+					"height": 50,
+					"anchor": 4,
+					"visible": true,
+					"disabled": false,
+					"parentKey": null,
+					"properties": {}
+				},
+				{
+					"key": "Label_2",
+					"type": "Label",
+					"tID": "_label",
+					"posX": 0,
+					"posY": 0,
+					"width": 23,
+					"height": 15,
+					"anchor": 4,
+					"visible": true,
+					"disabled": false,
+					"parentKey": "RowLayout_1",
+					"properties": {
+						"text": "test",
+						"alignmentHor": 0,
+						"alignmentVert": 0
+					}
+				},
+				{
+					"key": "Label_1",
+					"type": "Label",
+					"tID": "_label",
+					"posX": 0,
+					"posY": 0,
+					"width": 33,
+					"height": 15,
+					"anchor": 4,
+					"visible": true,
+					"disabled": false,
+					"parentKey": "RowLayout_1",
+					"properties": {
+						"text": "test 2",
+						"alignmentHor": 0,
+						"alignmentVert": 0
 					}
 				}
 			]
