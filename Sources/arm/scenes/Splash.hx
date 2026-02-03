@@ -24,21 +24,18 @@ class Splash extends GameScene {
 	}
 
 	function nextLogo() {
-		fadeIn(function() {
-			elements[currentLogoIndex].visible = false;
-			currentLogoIndex += 1;
-
-			if (currentLogoIndex >= elements.length) {
-				loadScene(nextScene);
-			} else {
+		currentLogoIndex += 1;
+		if (currentLogoIndex < elements.length) {
+			fadeIn(function() {
+				elements[currentLogoIndex - 1].visible = false;
 				elements[currentLogoIndex].visible = true;
 				fadeOut(function() {
 					tween.delay(2.0, function() {
 						nextLogo();
 					}).start();
 				});
-			}
-		});
+			});
+		} else loadScene(nextScene);
 	}
 
 	public override function onTransitionFinished() {
