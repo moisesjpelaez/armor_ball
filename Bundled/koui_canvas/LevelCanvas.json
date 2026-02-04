@@ -1,5 +1,5 @@
 {
-	"name": "TestCanvas",
+	"name": "LevelCanvas",
 	"version": "1.1",
 	"canvas": {
 		"width": 320,
@@ -21,19 +21,33 @@
 			"active": true,
 			"elements": [
 				{
-					"key": "Label_1",
-					"type": "Label",
-					"tID": "title",
+					"key": "level_container",
+					"type": "AnchorPane",
+					"tID": "_fixed_anchorpane",
 					"posX": 0,
 					"posY": 0,
-					"width": 148,
-					"height": 32,
-					"anchor": 1,
+					"width": 320,
+					"height": 240,
+					"anchor": 4,
 					"visible": true,
 					"disabled": false,
 					"parentKey": null,
+					"properties": {}
+				},
+				{
+					"key": "level_label",
+					"type": "Label",
+					"tID": "_label",
+					"posX": 0,
+					"posY": -20,
+					"width": 140,
+					"height": 15,
+					"anchor": 7,
+					"visible": true,
+					"disabled": false,
+					"parentKey": "level_container",
 					"properties": {
-						"text": "Main Menu",
+						"text": "press 'b' to restart level",
 						"alignmentHor": 0,
 						"alignmentVert": 0
 					}
@@ -43,13 +57,13 @@
 					"type": "Label",
 					"tID": "_label",
 					"posX": -20,
-					"posY": 0,
+					"posY": 20,
 					"width": 48,
 					"height": 15,
 					"anchor": 2,
 					"visible": true,
 					"disabled": false,
-					"parentKey": null,
+					"parentKey": "level_container",
 					"properties": {
 						"text": "Score: 0",
 						"alignmentHor": 0,
@@ -57,99 +71,51 @@
 					}
 				},
 				{
-					"key": "ColLayout_1",
-					"type": "ColLayout",
-					"tID": "_collayout",
-					"posX": 0,
-					"posY": 0,
-					"width": 150,
-					"height": 70,
-					"anchor": 7,
-					"visible": true,
-					"disabled": false,
-					"parentKey": null,
-					"properties": {}
-				},
-				{
-					"key": "ImagePanel_1",
-					"type": "ImagePanel",
-					"tID": "_imagepanel",
-					"posX": 0,
-					"posY": 0,
-					"width": 48,
-					"height": 48,
-					"anchor": 4,
-					"visible": true,
-					"disabled": false,
-					"parentKey": "ColLayout_1",
-					"properties": {
-						"imageName": "grid",
-						"scale": true
-					}
-				},
-				{
-					"key": "ImagePanel_2",
-					"type": "ImagePanel",
-					"tID": "_imagepanel",
-					"posX": 0,
-					"posY": 0,
-					"width": 32,
-					"height": 32,
-					"anchor": 4,
-					"visible": true,
-					"disabled": false,
-					"parentKey": "ColLayout_1",
-					"properties": {
-						"imageName": "grid",
-						"scale": true
-					}
-				},
-				{
-					"key": "RowLayout_1",
+					"key": "win_container",
 					"type": "RowLayout",
 					"tID": "_rowlayout",
 					"posX": 0,
 					"posY": 0,
-					"width": 70,
-					"height": 50,
+					"width": 200,
+					"height": 70,
 					"anchor": 4,
-					"visible": true,
+					"visible": false,
 					"disabled": false,
 					"parentKey": null,
 					"properties": {}
 				},
 				{
-					"key": "Label_2",
+					"key": "win_label",
 					"type": "Label",
-					"tID": "_label",
+					"tID": "title",
 					"posX": 0,
 					"posY": 0,
-					"width": 23,
-					"height": 15,
+					"width": 136,
+					"height": 32,
 					"anchor": 4,
 					"visible": true,
 					"disabled": false,
-					"parentKey": "RowLayout_1",
+					"parentKey": "win_container",
 					"properties": {
-						"text": "test",
+						"text": "Level Win!",
 						"alignmentHor": 0,
 						"alignmentVert": 0
 					}
 				},
 				{
-					"key": "Label_1",
+					"key": "button_label",
 					"type": "Label",
 					"tID": "_label",
 					"posX": 0,
 					"posY": 0,
-					"width": 33,
+					"width": 122,
 					"height": 15,
 					"anchor": 4,
 					"visible": true,
 					"disabled": false,
-					"parentKey": "RowLayout_1",
+					"parentKey": "win_container",
 					"properties": {
-						"text": "test 2",
+						"text": "press 'a' to continue",
 						"alignmentHor": 0,
 						"alignmentVert": 0
 					}
