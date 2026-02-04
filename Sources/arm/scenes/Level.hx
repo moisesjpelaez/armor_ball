@@ -1,6 +1,6 @@
 package arm.scenes;
 
-import arm.autoloads.GameEvents;
+import arm.autoload.GameEvents;
 import armory.trait.internal.KouiCanvas;
 import iron.Scene;
 import iron.system.Input;

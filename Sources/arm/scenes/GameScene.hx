@@ -1,6 +1,6 @@
 package arm.scenes;
 
-import arm.autoloads.GameEvents;
+import arm.autoload.GameEvents;
 import armory.system.Tween;
 import iron.Scene;
 import kha.Color;

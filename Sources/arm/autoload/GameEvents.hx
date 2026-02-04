@@ -1,4 +1,4 @@
-package arm.autoloads;
+package arm.autoload;
 
 import armory.system.Signal;
 

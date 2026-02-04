@@ -1,6 +1,6 @@
 package arm.level;
 
-import arm.autoloads.GameEvents;
+import arm.autoload.GameEvents;
 import armory.trait.physics.RigidBody;
 
 class Gem extends iron.Trait {
