@@ -49,7 +49,7 @@ class Level extends GameScene {
 	}
 
 	function update() {
-		if (gamepad.started('b')) {
+		if (gamepad.started('x')) {
 			removeUpdate(update);
 			loadScene(Scene.active.raw.name);
 		}

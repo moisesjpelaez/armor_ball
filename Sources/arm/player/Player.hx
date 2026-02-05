@@ -17,6 +17,10 @@ class Player extends iron.Trait {
 	public function new() {
 		super();
 
+		notifyOnAdd(function() {
+			MainInstances.player = this;
+		});
+
 		notifyOnInit(function() {
 			physics = PhysicsWorld.active;
 			rb = object.getTrait(RigidBody);
