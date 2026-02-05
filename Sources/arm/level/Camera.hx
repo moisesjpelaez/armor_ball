@@ -18,7 +18,6 @@ class Camera extends iron.Trait {
                               object.transform.worldz() - target.transform.worldz(), 1);
 
             notifyOnLateUpdate(function() {
-                // Update camera eye position (follows player + offset)
                 object.transform.loc.set(target.transform.worldx() + offset.x, target.transform.worldy() + offset.y, target.transform.worldz() + offset.z);
             });
         });

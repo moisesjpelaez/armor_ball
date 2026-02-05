@@ -1,5 +1,6 @@
 package arm.player;
 
+import arm.autoload.GameEvents;
 import arm.autoload.MainInstances;
 import armory.trait.physics.PhysicsWorld;
 import armory.trait.physics.RigidBody;
@@ -26,6 +27,11 @@ class Player extends iron.Trait {
 			rb = object.getTrait(RigidBody);
 			gamepad = Input.getGamepad();
 			notifyOnFixedUpdate(fixedUpdate);
+			GameEvents.levelWon.connect(onLevelWon);
+		});
+
+		notifyOnRemove(function() {
+			GameEvents.levelWon.disconnect(onLevelWon);
 		});
 	}
 
@@ -35,5 +41,9 @@ class Player extends iron.Trait {
 		if (direction.length() > 0.1) {
 			rb.applyForce(new Vec4(direction.x, direction.y, 0, 1).mult(speed));
 		}
+	}
+
+	function onLevelWon() {
+		removeFixedUpdate(fixedUpdate);
 	}
 }
