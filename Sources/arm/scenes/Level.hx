@@ -75,6 +75,7 @@ class Level extends GameScene {
 			levelContainer.visible = false;
 			winContainer.visible = true;
 			notifyOnUpdate(winUpdate);
+			GameEvents.levelWon.emit();
 		}
 	}
 }
