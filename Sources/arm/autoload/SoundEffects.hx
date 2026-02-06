@@ -8,11 +8,20 @@ import kha.Sound;
 
 @:n64Autoload
 class SoundEffects {
-    public static var volume(default, set): Float = 1.0;
+    public static var volume(default, set): Float = 0.75;
     static var channels: Map<String, Array<BaseChannelHandle>> = new Map();
+
+    static var gameStartSound: Sound;
+    static var gameStartSoundHandle: BaseChannelHandle;
+
+    static var looseSound: Sound;
+    static var looseSoundHandle: BaseChannelHandle;
 
     static var winSound: Sound;
     static var winSoundHandle: BaseChannelHandle;
+
+    static var buttonPressSound: Sound;
+    static var buttonPressSoundHandle: BaseChannelHandle;
 
     static function set_volume(value: Float): Float {
         Aura.mixChannels["fx"].setVolume(value);
@@ -23,8 +32,22 @@ class SoundEffects {
         Aura.mixChannels["fx"].setVolume(volume);
 
         setChannels("gem_collect", Assets.sounds.collect_coin);
+
+        gameStartSound = Assets.sounds.game_start;
+        gameStartSoundHandle = Aura.createCompBufferChannel(gameStartSound, false, Aura.mixChannels["fx"]);
+
+        looseSound = Assets.sounds.loose;
+        looseSoundHandle = Aura.createCompBufferChannel(looseSound, false, Aura.mixChannels["fx"]);
+
         winSound = Assets.sounds.win;
         winSoundHandle = Aura.createCompBufferChannel(winSound, false, Aura.mixChannels["fx"]);
+
+        buttonPressSound = Assets.sounds.button_pressed;
+        buttonPressSoundHandle = Aura.createCompBufferChannel(buttonPressSound, false, Aura.mixChannels["fx"]);
+
+        GameEvents.gameStarted.connect(function () {
+            gameStartSoundHandle.play();
+        });
 
         GameEvents.gemCollected.connect(function () {
             playChannel("gem_collect");
@@ -32,6 +55,14 @@ class SoundEffects {
 
         GameEvents.levelWon.connect(function () {
             winSoundHandle.play();
+        });
+
+        GameEvents.playerDied.connect(function () {
+            looseSoundHandle.play();
+        });
+
+        GameEvents.buttonPressed.connect(function () {
+            buttonPressSoundHandle.play();
         });
     }
 

@@ -58,6 +58,7 @@ class Level extends GameScene {
 		if (gamepad.started('a')) {
 			removeUpdate(winUpdate);
 			loadScene(nextLevel);
+			GameEvents.buttonPressed.emit();
 		}
 	}
 

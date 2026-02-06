@@ -29,6 +29,7 @@ class MainMenu extends GameScene {
 		if (gamepad.started('options')) {
 			removeUpdate(update);
 			loadScene(firstLevel);
+			GameEvents.gameStarted.emit();
 		}
 	}
 
