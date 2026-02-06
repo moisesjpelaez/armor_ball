@@ -2,6 +2,7 @@ package arm.autoload;
 
 import armory.system.Tween;
 import aura.Aura;
+import iron.Scene;
 import kha.Assets;
 import kha.Sound;
 
@@ -51,14 +52,17 @@ class Music {
     }
 
     static function onSceneLoaded(sceneName: String) {
-        if (sceneName == "Test1") {
+        if (sceneName == "MainMenu") {
             play(menuMusicHandle);
-        } else if (sceneName == "Test2") {
+        } else if (StringTools.startsWith(sceneName, "Level")) {
             play(levelMusicHandle);
         }
     }
 
-    static function onSceneChangeStarted() {
+    static function onSceneChangeStarted(sceneName: String) {
+        var currentSceneName: String = Scene.active.raw.name;
+        if (currentSceneName == sceneName) return;
+        if (StringTools.startsWith(currentSceneName, "Level") && StringTools.startsWith(sceneName, "Level")) return;
         if (currentHandle == null) return;
         stop(currentHandle);
     }

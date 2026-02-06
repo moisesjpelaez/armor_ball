@@ -25,10 +25,6 @@ class Level extends GameScene {
 	public function new() {
 		super();
 
-		notifyOnAdd(function() {
-			Gamepad.buttons = Gamepad.buttonsXBOX;
-		});
-
 		notifyOnInit(function() {
 			totalScore = Scene.active.getGroup(gemsGroup).length;
 			gamepad = Input.getGamepad();

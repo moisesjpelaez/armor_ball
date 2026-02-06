@@ -9,6 +9,10 @@ class GameEvents {
     public static var sceneChangeStarted: Signal = new Signal(); // (sceneName: String)
     public static var sceneStarted: Signal = new Signal();
 
+    public static var gameStarted: Signal = new Signal();
+    public static var gamePaused: Signal = new Signal(); // (paused: Bool)
+    public static var buttonPressed: Signal = new Signal();
+
     public static var gemCollected: Signal = new Signal();
     public static var levelWon: Signal = new Signal();
     public static var playerDied: Signal = new Signal();

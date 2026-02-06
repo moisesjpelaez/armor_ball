@@ -1,4 +1,3 @@
-D:\Game Development\Armory\arm_ball\Assets\images\grid.png
 D:\Game Development\Armory\arm_ball\Assets\images\logos\ArmoryBanner.png
 D:\Game Development\Armory\arm_ball\Assets\images\logos\ArmoryLogo.png
 D:\Game Development\Armory\arm_ball\Assets\images\logos\aura_logo.png
