@@ -27,11 +27,13 @@ class Player extends iron.Trait {
 			rb = object.getTrait(RigidBody);
 			gamepad = Input.getGamepad();
 			notifyOnFixedUpdate(fixedUpdate);
-			GameEvents.levelWon.connect(onLevelWon);
+			GameEvents.levelWon.connect(onGameEnded);
+			GameEvents.playerDied.connect(onGameEnded);
 		});
 
 		notifyOnRemove(function() {
-			GameEvents.levelWon.disconnect(onLevelWon);
+			GameEvents.levelWon.disconnect(onGameEnded);
+			GameEvents.playerDied.disconnect(onGameEnded);
 		});
 	}
 
@@ -43,7 +45,7 @@ class Player extends iron.Trait {
 		}
 	}
 
-	function onLevelWon() {
+	function onGameEnded() {
 		removeFixedUpdate(fixedUpdate);
 	}
 }

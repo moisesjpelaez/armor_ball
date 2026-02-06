@@ -40,15 +40,18 @@ class Level extends GameScene {
 				scoreLabel.text = "Score: " + score + Std.string("/" + totalScore);
 				init();
 				GameEvents.gemCollected.connect(onGemCollected);
+				GameEvents.playerDied.connect(onPlayerDied);
 			});
 		});
 
 		notifyOnRemove(function() {
 			GameEvents.gemCollected.disconnect(onGemCollected);
+			GameEvents.playerDied.disconnect(onPlayerDied);
 		});
 	}
 
 	function update() {
+		// TODO: replace restarting with simple pause menu
 		if (gamepad.started('x')) {
 			removeUpdate(update);
 			loadScene(Scene.active.raw.name);
@@ -77,5 +80,10 @@ class Level extends GameScene {
 			notifyOnUpdate(winUpdate);
 			GameEvents.levelWon.emit();
 		}
+	}
+
+	function onPlayerDied() {
+		removeUpdate(update);
+		loadScene(Scene.active.raw.name);
 	}
 }

@@ -11,4 +11,5 @@ class GameEvents {
 
     public static var gemCollected: Signal = new Signal();
     public static var levelWon: Signal = new Signal();
+    public static var playerDied: Signal = new Signal();
 }
