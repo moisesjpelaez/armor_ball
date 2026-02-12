@@ -4,7 +4,7 @@ import armory.trait.internal.KouiCanvas;
 import koui.elements.Element;
 
 class Splash extends GameScene {
-	@prop var nextScene: String = "Test1";
+	@prop var nextScene: String = "MainMenu";
 
 	var canvas: KouiCanvas;
 	var elements: Array<Element>;

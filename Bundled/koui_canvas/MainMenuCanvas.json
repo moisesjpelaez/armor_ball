@@ -40,14 +40,14 @@
 					"tID": "title",
 					"posX": 0,
 					"posY": 40,
-					"width": 148,
+					"width": 113,
 					"height": 32,
 					"anchor": 1,
 					"visible": true,
 					"disabled": false,
 					"parentKey": "menu_container",
 					"properties": {
-						"text": "Main Menu",
+						"text": "Arm Ball",
 						"alignmentHor": 0,
 						"alignmentVert": 0
 					}
