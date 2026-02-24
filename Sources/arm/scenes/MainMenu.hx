@@ -12,10 +12,6 @@ class MainMenu extends GameScene {
 	public function new() {
 		super();
 
-		notifyOnAdd(function() {
-			Gamepad.buttons = Gamepad.buttonsXBOX;
-		});
-
 		notifyOnInit(function() {
 			gamepad = Input.getGamepad();
 			canvas = object.getTrait(KouiCanvas);

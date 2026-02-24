@@ -14,6 +14,8 @@ class Music {
     static var menuMusicHandle: BaseChannelHandle;
     static var levelMusic: Sound;
     static var levelMusicHandle: BaseChannelHandle;
+    static var winMusic: Sound;
+    static var winMusicHandle: BaseChannelHandle;
     static var currentHandle: BaseChannelHandle;
 
     static var tween: Tween = new Tween();
@@ -31,6 +33,9 @@ class Music {
 
         levelMusic = Assets.sounds.level;
         levelMusicHandle = Aura.createCompBufferChannel(levelMusic, true, Aura.mixChannels["music"]);
+
+        winMusic = Assets.sounds.winner;
+        winMusicHandle = Aura.createCompBufferChannel(winMusic, true, Aura.mixChannels["music"]);
 
         GameEvents.sceneLoaded.connect(onSceneLoaded);
         GameEvents.sceneChangeStarted.connect(onSceneChangeStarted);
@@ -56,6 +61,8 @@ class Music {
             play(menuMusicHandle);
         } else if (StringTools.startsWith(sceneName, "Level")) {
             play(levelMusicHandle);
+        } else if (sceneName == "Win") {
+            play(winMusicHandle);
         }
     }
 

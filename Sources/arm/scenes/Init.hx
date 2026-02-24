@@ -4,6 +4,7 @@ import arm.autoload.Music;
 import arm.autoload.SoundEffects;
 import aura.Aura;
 import iron.Scene;
+import iron.system.Input;
 import kha.Assets;
 
 class Init extends iron.Trait {
@@ -32,6 +33,7 @@ class Init extends iron.Trait {
     }
 
     function init() {
+        Gamepad.buttons = Gamepad.buttonsXBOX;
         Music.init();
         SoundEffects.init();
         Scene.setActive(initialScene);
