@@ -23,4 +23,4 @@
 	url = https://github.com/HailToDodongo/tiny3d.git
 [submodule "Libraries/n64_exporter"]
 	path = Libraries/n64_exporter
-	url = git@github.com:moisesjpelaez/n64_exporter.git
+	url=https://github.com/moisesjpelaez/n64_exporter.git
