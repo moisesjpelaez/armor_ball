@@ -14,3 +14,13 @@
 	path = Subprojects/Koui
 	url = https://gitlab.com/moises.jpelaez/Koui.git
 	branch = runtime_theme_parser
+[submodule "Libraries/libdragon"]
+	path = Libraries/libdragon
+	url = https://github.com/DragonMinded/libdragon.git
+	branch = preview
+[submodule "Libraries/tiny3d"]
+	path = Libraries/tiny3d
+	url = https://github.com/HailToDodongo/tiny3d.git
+[submodule "Libraries/n64_exporter"]
+	path = Libraries/n64_exporter
+	url = git@github.com:moisesjpelaez/n64_exporter.git
