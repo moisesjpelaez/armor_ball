@@ -140,14 +140,14 @@
 					"tID": "_label",
 					"posX": 0,
 					"posY": 0,
-					"width": 122,
+					"width": 124,
 					"height": 15,
 					"anchor": 4,
 					"visible": true,
 					"disabled": false,
 					"parentKey": "win_container",
 					"properties": {
-						"text": "press 'a' to continue",
+						"text": "press 'A' to continue",
 						"alignmentHor": 0,
 						"alignmentVert": 0
 					}
