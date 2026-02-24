@@ -1,9 +1,4 @@
-D:\Game Development\Armory\arm_ball\Assets\images\logos\ArmoryBanner.png
 D:\Game Development\Armory\arm_ball\Assets\images\logos\ArmoryLogo.png
-D:\Game Development\Armory\arm_ball\Assets\images\logos\aura_logo.png
-D:\Game Development\Armory\arm_ball\Assets\images\logos\blender_logo_socket.png
-D:\Game Development\Armory\arm_ball\Assets\images\logos\haxe-logo.png
-D:\Game Development\Armory\arm_ball\Assets\images\logos\KouiBanner.png
 D:\Game Development\Armory\arm_ball\Assets\images\logos\libdragon_logo.png
 D:\Game Development\Armory\arm_ball\Assets\images\logos\moises_logo.png
 D:\Game Development\Armory\arm_ball\Assets\images\logos\tiny3d_logo.png
