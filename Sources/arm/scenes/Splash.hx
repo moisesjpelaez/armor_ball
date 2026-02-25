@@ -25,7 +25,11 @@ class Splash extends GameScene {
 
 	function nextLogo() {
 		currentLogoIndex += 1;
+		#if arm_target_n64
 		if (currentLogoIndex < elements.length) {
+		#else
+		if (currentLogoIndex < elements.length - 2) {
+		#end
 			fadeIn(function() {
 				elements[currentLogoIndex - 1].visible = false;
 				elements[currentLogoIndex].visible = true;
