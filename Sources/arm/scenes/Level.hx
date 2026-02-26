@@ -7,6 +7,10 @@ import iron.system.Input;
 import koui.elements.Label;
 import koui.elements.layouts.AnchorPane;
 import koui.elements.layouts.RowLayout;
+#if (kha_html5 || kha_debug_html5)
+import kha.SystemImpl;
+import kha.input.Surface;
+#end
 
 class Level extends GameScene {
 	@prop var nextLevel: String;
@@ -22,6 +26,10 @@ class Level extends GameScene {
 	var winContainer: RowLayout;
 	var levelContainer: AnchorPane;
 
+	#if (kha_html5 || kha_debug_html5)
+	var buttonLabel: Label;
+	#end
+
 	public function new() {
 		super();
 
@@ -34,6 +42,12 @@ class Level extends GameScene {
 				winContainer = canvas.getElementAs(RowLayout, "win_container");
 				levelContainer = canvas.getElementAs(AnchorPane, "level_container");
 				scoreLabel.text = "Score: " + score + Std.string("/" + totalScore);
+				#if (kha_html5 || kha_debug_html5)
+				if (SystemImpl.mobile) {
+					buttonLabel = canvas.getElementAs(Label, "win_container/button_label");
+					buttonLabel.text = "tap to continue";
+				}
+				#end
 				init();
 				GameEvents.gemCollected.connect(onGemCollected);
 				GameEvents.playerDied.connect(onPlayerDied);
@@ -63,7 +77,13 @@ class Level extends GameScene {
 	}
 
 	public override function onTransitionFinished() {
-		notifyOnUpdate(update);
+		#if (kha_html5 || kha_debug_html5)
+		if (!SystemImpl.mobile) {
+		#end
+			notifyOnUpdate(update);
+		#if (kha_html5 || kha_debug_html5)
+		}
+		#end
 	}
 
 	function onGemCollected() {
@@ -71,16 +91,38 @@ class Level extends GameScene {
 		scoreLabel.text = "Score: " + score + Std.string("/" + totalScore);
 
 		if (score >= totalScore) {
-			removeUpdate(update);
 			levelContainer.visible = false;
 			winContainer.visible = true;
-			notifyOnUpdate(winUpdate);
+			#if (kha_html5 || kha_debug_html5)
+			if (SystemImpl.mobile) {
+				Surface.get().notify(onTouchStart);
+			} else {
+			#end
+				removeUpdate(update);
+				notifyOnUpdate(winUpdate);
+			#if (kha_html5 || kha_debug_html5)
+			}
+			#end
 			GameEvents.levelWon.emit();
 		}
 	}
 
 	function onPlayerDied() {
-		removeUpdate(update);
+		#if (kha_html5 || kha_debug_html5)
+		if (!SystemImpl.mobile) {
+		#end
+			removeUpdate(update);
+		#if (kha_html5 || kha_debug_html5)
+		}
+		#end
 		loadScene(Scene.active.raw.name);
 	}
+
+	#if (kha_html5 || kha_debug_html5)
+	function onTouchStart(id:Int, x:Int, y:Int) {
+		loadScene(nextLevel);
+		GameEvents.buttonPressed.emit();
+		Surface.get().remove(onTouchStart);
+	}
+	#end
 }

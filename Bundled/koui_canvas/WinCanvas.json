@@ -39,7 +39,7 @@
 					}
 				},
 				{
-					"key": "text_label",
+					"key": "button_label",
 					"type": "Label",
 					"tID": "_label",
 					"posX": 0,
