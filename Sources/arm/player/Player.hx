@@ -17,6 +17,7 @@ class Player extends iron.Trait {
 
 	var physics: PhysicsWorld;
 	var rb: RigidBody;
+	var keyboard: Keyboard;
 	var gamepad: Gamepad;
 	#if (kha_html5 || kha_debug_html5)
 	var sensor: Sensor;
@@ -37,6 +38,7 @@ class Player extends iron.Trait {
 				sensor = new Sensor();
 			} else {
 			#end
+				keyboard = Input.getKeyboard();
 				gamepad = Input.getGamepad();
 			#if (kha_html5 || kha_debug_html5)
 			}
@@ -70,6 +72,10 @@ class Player extends iron.Trait {
 		} else {
 		#end
 			direction = new Vec2(gamepad.leftStick.x, gamepad.leftStick.y);
+			if (keyboard.down('w') || keyboard.down('up')) direction.y += 1;
+			if (keyboard.down('s') || keyboard.down('down')) direction.y -= 1;
+			if (keyboard.down('a') || keyboard.down('left')) direction.x -= 1;
+			if (keyboard.down('d') || keyboard.down('right')) direction.x += 1;
 		#if (kha_html5 || kha_debug_html5)
 		}
 		#end

@@ -19,6 +19,7 @@ class Level extends GameScene {
 	var totalScore: Int = 0;
 	var score: Int = 0;
 
+	var keyboard: Keyboard;
 	var gamepad: Gamepad;
 
 	var canvas: KouiCanvas;
@@ -35,6 +36,7 @@ class Level extends GameScene {
 
 		notifyOnInit(function() {
 			totalScore = Scene.active.getGroup(gemsGroup).length;
+			keyboard = Input.getKeyboard();
 			gamepad = Input.getGamepad();
 			canvas = object.getTrait(KouiCanvas);
 			canvas.notifyOnReady(function() {
@@ -62,14 +64,14 @@ class Level extends GameScene {
 
 	function update() {
 		// TODO: replace restarting with simple pause menu
-		if (gamepad.started('x')) {
+		if (keyboard.down('r') || gamepad.started('x')) {
 			removeUpdate(update);
 			loadScene(Scene.active.raw.name);
 		}
 	}
 
 	function winUpdate() {
-		if (gamepad.started('a')) {
+		if (keyboard.down('space') || gamepad.started('a')) {
 			removeUpdate(winUpdate);
 			loadScene(nextLevel);
 			GameEvents.buttonPressed.emit();

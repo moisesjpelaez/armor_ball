@@ -11,6 +11,7 @@ import koui.elements.Label;
 
 class Win extends GameScene {
 	@prop var mainMenu: String = "MainMenu";
+	var keyboard: Keyboard;
 	var gamepad: Gamepad;
 	var canvas: KouiCanvas;
 	#if (kha_html5 || kha_debug_html5)
@@ -21,6 +22,7 @@ class Win extends GameScene {
 		super();
 
 		notifyOnInit(function() {
+			keyboard = Input.getKeyboard();
 			gamepad = Input.getGamepad();
 			canvas = object.getTrait(KouiCanvas);
 			canvas.notifyOnReady(function() {
@@ -36,7 +38,7 @@ class Win extends GameScene {
 	}
 
 	function update() {
-		if (gamepad.started('a')) {
+		if (keyboard.down('space') || gamepad.started('a')) {
 			removeUpdate(update);
 			loadScene(mainMenu);
 			GameEvents.buttonPressed.emit();

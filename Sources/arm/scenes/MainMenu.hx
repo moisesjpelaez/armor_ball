@@ -11,6 +11,7 @@ import koui.elements.Label;
 
 class MainMenu extends GameScene {
 	@prop var firstLevel: String = "Level01";
+	var keyboard: Keyboard;
 	var gamepad: Gamepad;
 	var canvas: KouiCanvas;
 	#if (kha_html5 || kha_debug_html5)
@@ -21,6 +22,7 @@ class MainMenu extends GameScene {
 		super();
 
 		notifyOnInit(function() {
+			keyboard = Input.getKeyboard();
 			gamepad = Input.getGamepad();
 			canvas = object.getTrait(KouiCanvas);
 			canvas.notifyOnReady(function() {
@@ -36,7 +38,7 @@ class MainMenu extends GameScene {
 	}
 
 	function update() {
-		if (gamepad.started('options')) {
+		if (keyboard.down('enter') || gamepad.started('options')) {
 			removeUpdate(update);
 			loadScene(firstLevel);
 			GameEvents.gameStarted.emit();
