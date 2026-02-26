@@ -6,12 +6,18 @@ import aura.Aura;
 import iron.Scene;
 import iron.system.Input;
 import kha.Assets;
+#if (kha_html5 || kha_debug_html5)
+import arm.autoload.Transitions;
+#end
 
 class Init extends iron.Trait {
     @prop var initialScene: String = "Splash";
 
     public function new() {
         super();
+        #if (kha_html5 || kha_debug_html5)
+		Transitions.inst.init();
+		#end
         Aura.init({channelSize: 32});
         Assets.loadEverything(function () {
             var loadConfig: AuraLoadConfig = {
