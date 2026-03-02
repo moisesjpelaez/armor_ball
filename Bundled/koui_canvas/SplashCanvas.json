@@ -10,9 +10,6 @@
 			"autoScale": true,
 			"scaleHorizontal": false,
 			"scaleVertical": false
-		},
-		"editor": {
-			"undoStackSize": 50
 		}
 	},
 	"scenes": [
@@ -74,7 +71,7 @@
 					"tID": "_label",
 					"posX": 0,
 					"posY": 0,
-					"width": 73,
+					"width": 66,
 					"height": 15,
 					"anchor": 1,
 					"visible": true,
@@ -92,7 +89,7 @@
 					"tID": "_label",
 					"posX": 0,
 					"posY": 0,
-					"width": 66,
+					"width": 60,
 					"height": 15,
 					"anchor": 7,
 					"visible": true,

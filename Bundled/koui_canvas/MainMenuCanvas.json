@@ -36,9 +36,9 @@
 					"type": "Label",
 					"tID": "title",
 					"posX": 0,
-					"posY": 40,
-					"width": 104,
-					"height": 32,
+					"posY": 30,
+					"width": 137,
+					"height": 42,
 					"anchor": 1,
 					"visible": true,
 					"disabled": false,
@@ -50,13 +50,31 @@
 					}
 				},
 				{
+					"key": "play_label",
+					"type": "Label",
+					"tID": "_label",
+					"posX": 0,
+					"posY": 30,
+					"width": 116,
+					"height": 15,
+					"anchor": 4,
+					"visible": true,
+					"disabled": false,
+					"parentKey": null,
+					"properties": {
+						"text": "press 'START' to play",
+						"alignmentHor": 0,
+						"alignmentVert": 0
+					}
+				},
+				{
 					"key": "labels_container",
 					"type": "RowLayout",
 					"tID": "_rowlayout",
 					"posX": 0,
-					"posY": -20,
+					"posY": -15,
 					"width": 280,
-					"height": 35,
+					"height": 25,
 					"anchor": 7,
 					"visible": true,
 					"disabled": false,
@@ -66,17 +84,17 @@
 				{
 					"key": "game_label",
 					"type": "Label",
-					"tID": "_label",
+					"tID": "small_text",
 					"posX": 0,
 					"posY": 0,
-					"width": 141,
-					"height": 15,
+					"width": 123,
+					"height": 12,
 					"anchor": 4,
 					"visible": true,
 					"disabled": false,
 					"parentKey": "labels_container",
 					"properties": {
-						"text": "a game by Moises Pelaez",
+						"text": "a game by Moisés Peláez",
 						"alignmentHor": 0,
 						"alignmentVert": 0
 					}
@@ -84,35 +102,17 @@
 				{
 					"key": "music_label",
 					"type": "Label",
-					"tID": "_label",
+					"tID": "small_text",
 					"posX": 0,
 					"posY": 0,
-					"width": 192,
-					"height": 15,
+					"width": 171,
+					"height": 12,
 					"anchor": 4,
 					"visible": true,
 					"disabled": false,
 					"parentKey": "labels_container",
 					"properties": {
 						"text": "music by Brandon Morris (HaelDB)",
-						"alignmentHor": 0,
-						"alignmentVert": 0
-					}
-				},
-				{
-					"key": "play_label",
-					"type": "Label",
-					"tID": "_label",
-					"posX": 0,
-					"posY": 0,
-					"width": 116,
-					"height": 15,
-					"anchor": 4,
-					"visible": true,
-					"disabled": false,
-					"parentKey": null,
-					"properties": {
-						"text": "press 'START' to play",
 						"alignmentHor": 0,
 						"alignmentVert": 0
 					}

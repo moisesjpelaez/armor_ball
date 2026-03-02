@@ -49,5 +49,9 @@ title > _label:
 	color:
 		text: #262833
 	font:
-		size: 32
+		size: 42
 		family: "Quicksand_Bold"
+
+small_text > _label:
+	font:
+		size: 12
