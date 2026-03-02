@@ -1,0 +1,6 @@
+Quicksand-Bold.ttf
+Quicksand-Light.ttf
+Quicksand-Medium.ttf
+Quicksand-Regular.ttf
+Quicksand-SemiBold.ttf
+Quicksand-VariableFont_wght.ttf

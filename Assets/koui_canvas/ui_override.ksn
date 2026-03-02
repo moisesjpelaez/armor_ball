@@ -5,6 +5,8 @@ _label > _root:
 		offsetY: 1
 	color:
 		text: #ffffff
+	font:
+		family: "Quicksand_Regular"
 
 _checkbox > _root:
 	color:
@@ -48,3 +50,4 @@ title > _label:
 		text: #262833
 	font:
 		size: 32
+		family: "Quicksand_Bold"
