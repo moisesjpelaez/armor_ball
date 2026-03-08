@@ -31,8 +31,8 @@ class PlayerAnim extends iron.Trait {
 			else if (gamepad.started("b")) anim.play("Jump_player_world_map.blend");
 			else if (gamepad.started("x")) anim.play("Idle_player_world_map.blend");
 			#end
-			else if (gamepad.started("r1")) anim.pause();
-			else if (gamepad.started("l1")) anim.resume();
+			else if (gamepad.started("r2")) anim.pause();
+			else if (gamepad.started("l2")) anim.resume();
 		});
 	}
 
