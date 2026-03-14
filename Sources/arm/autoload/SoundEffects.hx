@@ -44,6 +44,7 @@ class SoundEffects {
         winSound = Assets.sounds.win;
         winSoundHandle = Aura.createCompBufferChannel(winSound, false, Aura.mixChannels["fx"]);
 
+        // TODO: use `setChannels` with 2 channels since buttons may be pressed fast sequencially
         buttonPressSound = Assets.sounds.button_pressed;
         buttonPressSoundHandle = Aura.createCompBufferChannel(buttonPressSound, false, Aura.mixChannels["fx"]);
 

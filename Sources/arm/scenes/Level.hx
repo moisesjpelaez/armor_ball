@@ -66,7 +66,7 @@ class Level extends GameScene {
 		// TODO: replace restarting with simple pause menu
 		if (keyboard.down('r') || gamepad.started('x')) {
 			removeUpdate(update);
-			loadScene(Scene.active.raw.name);
+			loadScene("MainMenu");
 		}
 	}
 
