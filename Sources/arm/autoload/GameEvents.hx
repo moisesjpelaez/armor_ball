@@ -12,6 +12,7 @@ class GameEvents {
     public static var gameStarted: Signal = new Signal();
     public static var gamePaused: Signal = new Signal(); // (paused: Bool)
     public static var buttonPressed: Signal = new Signal();
+    public static var buttonSelected: Signal = new Signal();
 
     public static var gemCollected: Signal = new Signal();
     public static var levelWon: Signal = new Signal();

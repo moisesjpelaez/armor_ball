@@ -55,3 +55,7 @@ title > _label:
 small_text > _label:
 	font:
 		size: 12
+
+small_text_bold > small_text:
+	font:
+		family: "Quicksand_Bold"

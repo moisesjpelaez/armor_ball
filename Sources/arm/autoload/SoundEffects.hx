@@ -1,7 +1,6 @@
 package arm.autoload;
 
 import arm.autoload.GameEvents;
-import armory.system.Tween;
 import aura.Aura;
 import kha.Assets;
 import kha.Sound;
@@ -22,6 +21,9 @@ class SoundEffects {
 
     static var buttonPressSound: Sound;
     static var buttonPressSoundHandle: BaseChannelHandle;
+
+    static var buttonSelectSound: Sound;
+    static var buttonSelectSoundHandle: BaseChannelHandle;
 
     static function set_volume(value: Float): Float {
         Aura.mixChannels["fx"].setVolume(value);
@@ -45,6 +47,8 @@ class SoundEffects {
         buttonPressSound = Assets.sounds.button_pressed;
         buttonPressSoundHandle = Aura.createCompBufferChannel(buttonPressSound, false, Aura.mixChannels["fx"]);
 
+        setChannels("button_select", Assets.sounds.button_select);
+
         GameEvents.gameStarted.connect(function () {
             gameStartSoundHandle.play();
         });
@@ -63,6 +67,10 @@ class SoundEffects {
 
         GameEvents.buttonPressed.connect(function () {
             buttonPressSoundHandle.play();
+        });
+
+        GameEvents.buttonSelected.connect(function () {
+            playChannel("button_select");
         });
     }
 
