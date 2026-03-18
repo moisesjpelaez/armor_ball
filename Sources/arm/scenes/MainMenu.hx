@@ -28,47 +28,55 @@ class MainMenu extends GameScene {
 			canvas = object.getTrait(KouiCanvas);
 			canvas.notifyOnReady(function() {
 				playButton = canvas.getElementFromSceneAs(Button, "MainMenu", "menu_buttons/play_button");
-				infoButton = canvas.getElementFromSceneAs(Button, "MainMenu", "menu_buttons/info_button");
-				quitButton = canvas.getElementFromSceneAs(Button, "MainMenu", "menu_buttons/quit_button");
-				backButton = canvas.getElementFromSceneAs(Button, "Info", "back_button");
-
 				playButton.onHover(function() {
 					GameEvents.buttonSelected.emit();
 				});
-				infoButton.onHover(function() {
-					GameEvents.buttonSelected.emit();
-				});
-				quitButton.onHover(function() {
-					GameEvents.buttonSelected.emit();
-				});
-				backButton.onHover(function() {
-					GameEvents.buttonSelected.emit();
-				});
-
 				playButton.onFocus(function() {
 					GameEvents.buttonSelected.emit();
 				});
-				infoButton.onFocus(function() {
-					GameEvents.buttonSelected.emit();
-				});
-				quitButton.onFocus(function() {
-					GameEvents.buttonSelected.emit();
-				});
-				backButton.onFocus(function() {
-					GameEvents.buttonSelected.emit();
-				});
-
 				playButton.onPressed(function() {
 					disableButtons();
 					loadScene(firstLevel);
 					GameEvents.gameStarted.emit();
 				});
+
+				infoButton = canvas.getElementFromSceneAs(Button, "MainMenu", "menu_buttons/info_button");
+				infoButton.onHover(function() {
+					GameEvents.buttonSelected.emit();
+				});
+				infoButton.onFocus(function() {
+					GameEvents.buttonSelected.emit();
+				});
 				infoButton.onPressed(function() {
 					canvas.setScene("Info");
 					GameEvents.buttonPressed.emit();
 				});
+
+				quitButton = canvas.getElementFromSceneAs(Button, "MainMenu", "menu_buttons/quit_button");
+				#if kha_krom
+				quitButton.onHover(function() {
+					GameEvents.buttonSelected.emit();
+				});
+				quitButton.onFocus(function() {
+					GameEvents.buttonSelected.emit();
+				});
 				quitButton.onPressed(function() {
 					System.stop();
+				});
+				#else
+				quitButton.visible = false;
+				quitButton.disabled = true;
+
+				playButton.focusUp = infoButton;
+				infoButton.focusDown = playButton;
+				#end
+
+				backButton = canvas.getElementFromSceneAs(Button, "Info", "back_button");
+				backButton.onHover(function() {
+					GameEvents.buttonSelected.emit();
+				});
+				backButton.onFocus(function() {
+					GameEvents.buttonSelected.emit();
 				});
 				backButton.onPressed(function() {
 					canvas.setScene("MainMenu");

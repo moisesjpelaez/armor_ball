@@ -3,20 +3,15 @@ package arm.scenes;
 import arm.autoload.GameEvents;
 import armory.trait.internal.KouiCanvas;
 import iron.system.Input;
-#if (kha_html5 || kha_debug_html5)
-import kha.SystemImpl;
-import kha.input.Surface;
-import koui.elements.Label;
-#end
+import koui.elements.Button;
+using armory.trait.internal.KouiCanvas.ButtonExt;
 
 class Win extends GameScene {
 	@prop var mainMenu: String = "MainMenu";
 	var keyboard: Keyboard;
 	var gamepad: Gamepad;
 	var canvas: KouiCanvas;
-	#if (kha_html5 || kha_debug_html5)
-	var buttonLabel: Label;
-	#end
+	var menuButton: Button;
 
 	public function new() {
 		super();
@@ -26,42 +21,20 @@ class Win extends GameScene {
 			gamepad = Input.getGamepad();
 			canvas = object.getTrait(KouiCanvas);
 			canvas.notifyOnReady(function() {
-				#if (kha_html5 || kha_debug_html5)
-				if (SystemImpl.mobile) {
-					buttonLabel = canvas.getElementAs(Label, "button_label");
-					buttonLabel.text = "tap for main menu";
-				}
-				#end
+				menuButton = canvas.getElementAs(Button, "menu_button");
+				menuButton.onHover(function() {
+					GameEvents.buttonSelected.emit();
+				});
+				menuButton.onFocus(function() {
+					GameEvents.buttonSelected.emit();
+				});
+				menuButton.onPressed(function() {
+					loadScene(mainMenu);
+					menuButton.disabled = true;
+					GameEvents.buttonPressed.emit();
+				});
 				init();
 			});
 		});
 	}
-
-	function update() {
-		if (keyboard.down('space') || gamepad.started('a')) {
-			removeUpdate(update);
-			loadScene(mainMenu);
-			GameEvents.buttonPressed.emit();
-		}
-	}
-
-	public override function onTransitionFinished() {
-		#if (kha_html5 || kha_debug_html5)
-		if (SystemImpl.mobile) {
-			Surface.get().notify(onTouchStart);
-		} else {
-		#end
-			notifyOnUpdate(update);
-		#if (kha_html5 || kha_debug_html5)
-		}
-		#end
-	}
-
-	#if (kha_html5 || kha_debug_html5)
-	function onTouchStart(id:Int, x:Int, y:Int) {
-		loadScene(mainMenu);
-		GameEvents.buttonPressed.emit();
-		Surface.get().remove(onTouchStart);
-	}
-	#end
 }

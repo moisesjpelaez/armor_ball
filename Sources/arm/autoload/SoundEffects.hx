@@ -4,6 +4,9 @@ import arm.autoload.GameEvents;
 import aura.Aura;
 import kha.Assets;
 import kha.Sound;
+#if (kha_html5 || kha_debug_html5)
+import kha.SystemImpl;
+#end
 
 @:n64Autoload
 class SoundEffects {
@@ -12,6 +15,8 @@ class SoundEffects {
 
     static var gameStartSound: Sound;
     static var gameStartSoundHandle: BaseChannelHandle;
+    static var pausedSound: Sound;
+    static var pausedSoundHandle: BaseChannelHandle;
 
     static var looseSound: Sound;
     static var looseSoundHandle: BaseChannelHandle;
@@ -38,20 +43,32 @@ class SoundEffects {
         gameStartSound = Assets.sounds.game_start;
         gameStartSoundHandle = Aura.createCompBufferChannel(gameStartSound, false, Aura.mixChannels["fx"]);
 
+        pausedSound = Assets.sounds.pause;
+        pausedSoundHandle = Aura.createCompBufferChannel(pausedSound, false, Aura.mixChannels["fx"]);
+
         looseSound = Assets.sounds.loose;
         looseSoundHandle = Aura.createCompBufferChannel(looseSound, false, Aura.mixChannels["fx"]);
 
         winSound = Assets.sounds.win;
         winSoundHandle = Aura.createCompBufferChannel(winSound, false, Aura.mixChannels["fx"]);
 
-        // TODO: use `setChannels` with 2 channels since buttons may be pressed fast sequencially
-        buttonPressSound = Assets.sounds.button_pressed;
-        buttonPressSoundHandle = Aura.createCompBufferChannel(buttonPressSound, false, Aura.mixChannels["fx"]);
-
-        setChannels("button_select", Assets.sounds.button_select);
+        setChannels("button_press", Assets.sounds.button_pressed);
+        #if (kha_html5 || kha_debug_html5)
+        if (!SystemImpl.mobile) {
+        #end
+            setChannels("button_select", Assets.sounds.button_select);
+        #if (kha_html5 || kha_debug_html5)
+        }
+        #end
 
         GameEvents.gameStarted.connect(function () {
             gameStartSoundHandle.play();
+        });
+
+        GameEvents.gamePaused.connect(function (paused: Bool) {
+            if (paused) {
+                pausedSoundHandle.play();
+            }
         });
 
         GameEvents.gemCollected.connect(function () {
@@ -67,11 +84,17 @@ class SoundEffects {
         });
 
         GameEvents.buttonPressed.connect(function () {
-            buttonPressSoundHandle.play();
+            playChannel("button_press");
         });
 
         GameEvents.buttonSelected.connect(function () {
-            playChannel("button_select");
+            #if (kha_html5 || kha_debug_html5)
+            if (!SystemImpl.mobile) {
+            #end
+                playChannel("button_select");
+            #if (kha_html5 || kha_debug_html5)
+            }
+            #end
         });
     }
 

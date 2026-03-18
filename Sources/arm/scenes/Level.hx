@@ -2,15 +2,16 @@ package arm.scenes;
 
 import arm.autoload.GameEvents;
 import armory.trait.internal.KouiCanvas;
+import iron.App;
 import iron.Scene;
 import iron.system.Input;
+import koui.elements.Button;
 import koui.elements.Label;
-import koui.elements.layouts.AnchorPane;
-import koui.elements.layouts.RowLayout;
+import koui.utils.SceneManager;
 #if (kha_html5 || kha_debug_html5)
 import kha.SystemImpl;
-import kha.input.Surface;
 #end
+using armory.trait.internal.KouiCanvas.ButtonExt;
 
 class Level extends GameScene {
 	@prop var nextLevel: String;
@@ -22,14 +23,20 @@ class Level extends GameScene {
 	var keyboard: Keyboard;
 	var gamepad: Gamepad;
 
+	@:isVar var paused(default, set): Bool = false;
 	var canvas: KouiCanvas;
-	var scoreLabel: Label;
-	var winContainer: RowLayout;
-	var levelContainer: AnchorPane;
-
+	// InGame
+	var igScoreLabel: Label;
 	#if (kha_html5 || kha_debug_html5)
-	var buttonLabel: Label;
+	var igPauseButton: Button;
 	#end
+	// Pause
+	var pResumeButton: Button;
+	var pRestartButton: Button;
+	var pMenuButton: Button;
+	// Win
+	var wMenuButton: Button;
+	var wContinueButton: Button;
 
 	public function new() {
 		super();
@@ -40,17 +47,91 @@ class Level extends GameScene {
 			gamepad = Input.getGamepad();
 			canvas = object.getTrait(KouiCanvas);
 			canvas.notifyOnReady(function() {
-				scoreLabel = canvas.getElementAs(Label, "level_container/score_label");
-				winContainer = canvas.getElementAs(RowLayout, "win_container");
-				levelContainer = canvas.getElementAs(AnchorPane, "level_container");
-				scoreLabel.text = "Score: " + score + Std.string("/" + totalScore);
+				// InGame
+				igScoreLabel = canvas.getElementFromSceneAs(Label, "InGame", "score_label");
+				igScoreLabel.text = "Score: " + score + Std.string("/" + totalScore);
 				#if (kha_html5 || kha_debug_html5)
 				if (SystemImpl.mobile) {
-					buttonLabel = canvas.getElementAs(Label, "win_container/button_label");
-					buttonLabel.text = "tap to continue";
+					igPauseButton = canvas.getElementFromSceneAs(Button, "InGame", "pause_button");
+					igPauseButton.visible = true;
+					igPauseButton.disabled = false;
+					igPauseButton.onPressed(function() {
+						this.paused = true;
+					});
 				}
 				#end
+
+				// Pause
+				pResumeButton = canvas.getElementFromSceneAs(Button, "Paused", "buttons/resume_button");
+				pResumeButton.onHover(function() {
+					GameEvents.buttonSelected.emit();
+				});
+				pResumeButton.onFocus(function() {
+					GameEvents.buttonSelected.emit();
+				});
+				pResumeButton.onPressed(function() {
+					this.paused = false;
+					canvas.setScene("InGame");
+					GameEvents.buttonPressed.emit();
+				});
+
+				pRestartButton = canvas.getElementFromSceneAs(Button, "Paused", "buttons/restart_button");
+				pRestartButton.onHover(function() {
+					GameEvents.buttonSelected.emit();
+				});
+				pRestartButton.onFocus(function() {
+					GameEvents.buttonSelected.emit();
+				});
+				pRestartButton.onPressed(function() {
+					this.paused = false;
+					loadScene(Scene.active.raw.name);
+					GameEvents.buttonPressed.emit();
+					SceneManager.clearScenes();
+				});
+
+				pMenuButton = canvas.getElementFromSceneAs(Button, "Paused", "buttons/menu_button");
+				pMenuButton.onHover(function() {
+					GameEvents.buttonSelected.emit();
+				});
+				pMenuButton.onFocus(function() {
+					GameEvents.buttonSelected.emit();
+				});
+				pMenuButton.onPressed(function() {
+					this.paused = false;
+					loadScene("MainMenu");
+					GameEvents.buttonPressed.emit();
+					SceneManager.clearScenes();
+				});
+
+				// Win
+				wMenuButton = canvas.getElementFromSceneAs(Button, "Win", "buttons/menu_button");
+				wMenuButton.onHover(function() {
+					GameEvents.buttonSelected.emit();
+				});
+				wMenuButton.onFocus(function() {
+					GameEvents.buttonSelected.emit();
+				});
+				wMenuButton.onPressed(function() {
+					loadScene("MainMenu");
+					GameEvents.buttonPressed.emit();
+					SceneManager.clearScenes();
+				});
+
+				wContinueButton = canvas.getElementFromSceneAs(Button, "Win", "buttons/continue_button");
+				wContinueButton.onHover(function() {
+					GameEvents.buttonSelected.emit();
+				});
+				wContinueButton.onFocus(function() {
+					GameEvents.buttonSelected.emit();
+				});
+				wContinueButton.onPressed(function() {
+					loadScene(nextLevel);
+					GameEvents.buttonPressed.emit();
+					SceneManager.clearScenes();
+				});
+
 				init();
+
 				GameEvents.gemCollected.connect(onGemCollected);
 				GameEvents.playerDied.connect(onPlayerDied);
 			});
@@ -62,20 +143,33 @@ class Level extends GameScene {
 		});
 	}
 
+	function set_paused(value: Bool): Bool {
+		App.pauseUpdates = value;
+		if (value != this.paused) {
+			GameEvents.gamePaused.emit(value);
+			if (value) {
+				canvas.setScene("Paused");
+			} else {
+				canvas.setScene("InGame");
+			}
+		}
+		return this.paused = value;
+	}
+
 	function update() {
-		// TODO: replace restarting with simple pause menu
-		if (keyboard.down('r') || gamepad.started('x')) {
-			removeUpdate(update);
-			loadScene("MainMenu");
+		if (keyboard.down('escape') || gamepad.started('options')) {
+			this.paused = true;
 		}
 	}
 
-	function winUpdate() {
-		if (keyboard.down('space') || gamepad.started('a')) {
-			removeUpdate(winUpdate);
-			loadScene(nextLevel);
-			GameEvents.buttonPressed.emit();
+	function cleanUpdate() {
+		#if (kha_html5 || kha_debug_html5)
+		if (!SystemImpl.mobile) {
+		#end
+			removeUpdate(update);
+		#if (kha_html5 || kha_debug_html5)
 		}
+		#end
 	}
 
 	public override function onTransitionFinished() {
@@ -90,41 +184,18 @@ class Level extends GameScene {
 
 	function onGemCollected() {
 		score += 1;
-		scoreLabel.text = "Score: " + score + Std.string("/" + totalScore);
+		igScoreLabel.text = "Score: " + score + Std.string("/" + totalScore);
 
 		if (score >= totalScore) {
-			levelContainer.visible = false;
-			winContainer.visible = true;
-			#if (kha_html5 || kha_debug_html5)
-			if (SystemImpl.mobile) {
-				Surface.get().notify(onTouchStart);
-			} else {
-			#end
-				removeUpdate(update);
-				notifyOnUpdate(winUpdate);
-			#if (kha_html5 || kha_debug_html5)
-			}
-			#end
+			cleanUpdate();
+			canvas.setScene("Win");
 			GameEvents.levelWon.emit();
 		}
 	}
 
 	function onPlayerDied() {
-		#if (kha_html5 || kha_debug_html5)
-		if (!SystemImpl.mobile) {
-		#end
-			removeUpdate(update);
-		#if (kha_html5 || kha_debug_html5)
-		}
-		#end
+		cleanUpdate();
 		loadScene(Scene.active.raw.name);
+		SceneManager.clearScenes();
 	}
-
-	#if (kha_html5 || kha_debug_html5)
-	function onTouchStart(id:Int, x:Int, y:Int) {
-		loadScene(nextLevel);
-		GameEvents.buttonPressed.emit();
-		Surface.get().remove(onTouchStart);
-	}
-	#end
 }
