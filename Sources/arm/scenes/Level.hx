@@ -149,6 +149,7 @@ class Level extends GameScene {
 			GameEvents.gamePaused.emit(value);
 			if (value) {
 				canvas.setScene("Paused");
+				pResumeButton.grabFocus();
 			} else {
 				canvas.setScene("InGame");
 			}
@@ -189,6 +190,7 @@ class Level extends GameScene {
 		if (score >= totalScore) {
 			cleanUpdate();
 			canvas.setScene("Win");
+			wContinueButton.grabFocus();
 			GameEvents.levelWon.emit();
 		}
 	}

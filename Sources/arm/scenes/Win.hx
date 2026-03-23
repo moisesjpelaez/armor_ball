@@ -33,6 +33,8 @@ class Win extends GameScene {
 					menuButton.disabled = true;
 					GameEvents.buttonPressed.emit();
 				});
+				menuButton.grabFocus();
+
 				init();
 			});
 		});

@@ -49,6 +49,7 @@ class MainMenu extends GameScene {
 				});
 				infoButton.onPressed(function() {
 					canvas.setScene("Info");
+					backButton.grabFocus();
 					GameEvents.buttonPressed.emit();
 				});
 
@@ -80,8 +81,11 @@ class MainMenu extends GameScene {
 				});
 				backButton.onPressed(function() {
 					canvas.setScene("MainMenu");
+					infoButton.grabFocus();
 					GameEvents.buttonPressed.emit();
 				});
+
+				playButton.grabFocus();
 
 				init();
 			});
