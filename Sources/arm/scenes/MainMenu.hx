@@ -5,7 +5,7 @@ import armory.trait.internal.KouiCanvas;
 import iron.system.Input;
 import kha.System;
 import koui.elements.Button;
-using armory.trait.internal.KouiCanvas.ButtonExt;
+using armory.trait.internal.KouiCanvas.ElementExt;
 
 class MainMenu extends GameScene {
 	@prop var firstLevel: String = "Level01";

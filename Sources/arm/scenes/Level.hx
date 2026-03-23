@@ -11,7 +11,7 @@ import koui.utils.SceneManager;
 #if (kha_html5 || kha_debug_html5)
 import kha.SystemImpl;
 #end
-using armory.trait.internal.KouiCanvas.ButtonExt;
+using armory.trait.internal.KouiCanvas.ElementExt;
 
 class Level extends GameScene {
 	@prop var nextLevel: String;
