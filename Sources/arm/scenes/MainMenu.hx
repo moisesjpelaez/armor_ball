@@ -54,7 +54,7 @@ class MainMenu extends GameScene {
 				});
 
 				quitButton = canvas.getElementFromSceneAs(Button, "MainMenu", "menu_buttons/quit_button");
-				#if kha_krom
+				#if (kha_krom || hl)
 				quitButton.onHover(function() {
 					GameEvents.buttonSelected.emit();
 				});
