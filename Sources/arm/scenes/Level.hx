@@ -15,7 +15,7 @@ using armory.trait.internal.KouiCanvas.ElementExt;
 
 class Level extends GameScene {
 	@prop var nextLevel: String;
-	@prop var gemsGroup: String = "Gems";
+	var gemsGroup: String = "Gems";
 
 	var totalScore: Int = 0;
 	var score: Int = 0;
