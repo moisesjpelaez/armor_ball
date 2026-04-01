@@ -1,6 +1,6 @@
 {
 	"name": "LevelCanvas",
-	"version": "1.1",
+	"version": "1.3",
 	"canvas": {
 		"width": 320,
 		"height": 240,
@@ -12,6 +12,12 @@
 			"scaleVertical": false
 		}
 	},
+	"radioGroups": [
+		{
+			"id": "RadioGroup",
+			"activeButtonKey": null
+		}
+	],
 	"scenes": [
 		{
 			"key": "InGame",
@@ -34,9 +40,7 @@
 					"focusLeft": null,
 					"focusRight": null,
 					"properties": {
-						"text": "Score: 99 / 99",
-						"alignmentHor": 0,
-						"alignmentVert": 0
+						"text": "Score: 99 / 99"
 					}
 				},
 				{
@@ -65,7 +69,7 @@
 		},
 		{
 			"key": "Paused",
-			"active": true,
+			"active": false,
 			"elements": [
 				{
 					"key": "pause_label",
@@ -84,9 +88,7 @@
 					"focusLeft": null,
 					"focusRight": null,
 					"properties": {
-						"text": "Game Paused",
-						"alignmentHor": 0,
-						"alignmentVert": 0
+						"text": "Game Paused"
 					}
 				},
 				{
@@ -196,9 +198,7 @@
 					"focusLeft": null,
 					"focusRight": null,
 					"properties": {
-						"text": "Level Win!",
-						"alignmentHor": 0,
-						"alignmentVert": 0
+						"text": "Level Win!"
 					}
 				},
 				{
