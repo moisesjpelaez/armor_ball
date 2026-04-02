@@ -1,7 +1,6 @@
 package arm.test;
 
 import iron.object.Animation;
-import iron.object.Object;
 import iron.system.Input;
 
 class PlayerAnim extends iron.Trait {
@@ -15,7 +14,7 @@ class PlayerAnim extends iron.Trait {
 			#if arm_target_n64
 			anim = object.animation;
 			#else
-			anim = findAnimation(object);
+			anim = object.getTraitFromChildren(Animation);
 			#end
 			anim.play("Idle");
             gamepad = Input.getGamepad();
@@ -35,15 +34,4 @@ class PlayerAnim extends iron.Trait {
 			else if (gamepad.started("l2")) anim.resume();
 		});
 	}
-
-	#if !arm_target_n64
-    function findAnimation(o: Object): Null<Animation> {
-		if (o.animation != null) return o.animation;
-		for (c in o.children) {
-			var ca: Animation = findAnimation(c);
-			if (ca != null) return ca;
-		}
-		return null;
-	}
-	#end
 }
