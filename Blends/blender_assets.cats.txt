@@ -8,5 +8,6 @@ VERSION 1
 
 16c90921-341c-40b0-bec8-e9d5ae4b521a:Actors:Actors
 d17355d5-aace-4ae0-8210-0154c2fc5c0e:Environment:Environment
+2d7339fd-41d2-4445-948b-c38769411535:Golf:Golf
 77d573c8-bc93-4811-a782-abfa9c4e593e:Level:Level
 4ebfdea6-d3f6-424a-aa2a-b82e736b50fc:Pickups:Pickups
