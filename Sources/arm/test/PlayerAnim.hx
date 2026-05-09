@@ -11,11 +11,7 @@ class PlayerAnim extends iron.Trait {
 		super();
 
 		notifyOnInit(function() {
-			#if arm_target_n64
-			anim = object.animation;
-			#else
-			anim = object.getTraitFromChildren(Animation);
-			#end
+			anim = object.getAnimation();
 			anim.play("Idle");
             gamepad = Input.getGamepad();
 		});
