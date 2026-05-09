@@ -28,6 +28,5 @@ class Camera extends iron.Trait {
                 object.transform.loc.set(target.transform.worldx() + offset.x, target.transform.worldy() + offset.y, target.transform.worldz() + offset.z);
             });
         });
-
     }
 }
