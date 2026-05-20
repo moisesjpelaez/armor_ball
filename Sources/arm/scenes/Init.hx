@@ -1,5 +1,6 @@
 package arm.scenes;
 
+import arm.autoload.MainInstances;
 import arm.autoload.Music;
 import arm.autoload.SoundEffects;
 import aura.Aura;
@@ -39,9 +40,11 @@ class Init extends iron.Trait {
     }
 
     function init() {
-        Gamepad.buttons = Gamepad.buttonsXBOX;
-        Music.init();
-        SoundEffects.init();
-        Scene.setActive(initialScene);
+        MainInstances.init(function() {
+            Gamepad.buttons = Gamepad.buttonsXBOX;
+            Music.init();
+            SoundEffects.init();
+            Scene.setActive(initialScene);
+        });
     }
 }
