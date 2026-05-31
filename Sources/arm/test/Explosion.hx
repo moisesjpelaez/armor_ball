@@ -17,17 +17,17 @@ class Explosion extends iron.Trait {
 	public function new() {
 		super();
 
-		notifyOnInit(function() {
-			rb = object.getTrait(RigidBody);
-			tween.vec4(object.transform.scale, new Vec4(radius, radius, radius, 1), expandTime, function(vec: Vec4) {
-				object.transform.scale.setFrom(vec);
-				object.transform.buildMatrix();
-				rb.syncTransform();
-			}, function() {
-				tween.delay(lifeTime, function() {
-					object.remove();
-				}).start();
-			}).start();
-		});
+		// notifyOnInit(function() {
+		// 	rb = object.getTrait(RigidBody);
+		// 	tween.vec4(object.transform.scale, new Vec4(radius, radius, radius, 1), expandTime, function(vec: Vec4) {
+		// 		object.transform.scale.setFrom(vec);
+		// 		object.transform.buildMatrix();
+		// 		rb.syncTransform();
+		// 	}, function() {
+		// 		tween.delay(lifeTime, function() {
+		// 			object.remove();
+		// 		}).start();
+		// 	}).start();
+		// });
 	}
 }
