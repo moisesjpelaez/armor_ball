@@ -21,3 +21,5 @@ This project uses:
 - [Tiny3D](https://github.com/HailToDodongo/tiny3d)
 
 This project is licensed under the terms of the zlib License. See the [LICENSE](LICENSE.md) file for details.
+
+Music by Brandon Morris under the [OGA-BY-3.0](https://static.opengameart.org/OGA-BY-3.0.txt) license.
