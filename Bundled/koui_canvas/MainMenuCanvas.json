@@ -195,7 +195,7 @@
 					"tID": "_rowlayout",
 					"posX": 0,
 					"posY": 10,
-					"width": 200,
+					"width": 240,
 					"height": 25,
 					"anchor": 1,
 					"visible": true,
@@ -213,7 +213,7 @@
 					"tID": "small_text",
 					"posX": 0,
 					"posY": 0,
-					"width": 123,
+					"width": 232,
 					"height": 12,
 					"anchor": 4,
 					"visible": true,
@@ -224,7 +224,7 @@
 					"focusLeft": null,
 					"focusRight": null,
 					"properties": {
-						"text": "a game by Moisés Peláez"
+						"text": "programming & 3D modeling by Moisés Peláez"
 					}
 				},
 				{
