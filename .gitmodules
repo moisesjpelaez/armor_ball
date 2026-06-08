@@ -21,6 +21,6 @@
 [submodule "Libraries/tiny3d"]
 	path = Libraries/tiny3d
 	url = https://github.com/HailToDodongo/tiny3d.git
-[submodule "Libraries/n64_exporter"]
-	path = Libraries/n64_exporter
-	url=https://github.com/moisesjpelaez/n64_exporter.git
+[submodule "Libraries/armor_64"]
+	path = Libraries/armor_64
+	url = https://github.com/moisesjpelaez/armor_64
