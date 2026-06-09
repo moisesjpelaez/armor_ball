@@ -1,7 +1,7 @@
 # Armor Ball
 A small roller ball game example made with [Blender](https://www.blender.org/) 4.5 and [Armory3D](https://armory3d.org/engine/) 2026.02.
 
-Made with scalability in mind and featuring:
+Featuring:
 - Gameplay with basic physics interactions
 - Coin collectables
 - Scene transitions
