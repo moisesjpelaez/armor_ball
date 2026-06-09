@@ -18,7 +18,7 @@ Use `git clone --recursive https://github.com/moisesjpelaez/arm_ball.git` to clo
 
 
 ## Documentation
-https://hackmd.io/@moisesjpelaez/armor_ball
+Guide: https://hackmd.io/@moisesjpelaez/armor_ball
 
 
 ## Info & License
