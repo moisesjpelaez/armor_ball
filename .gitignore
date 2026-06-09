@@ -6,3 +6,4 @@ _debug*
 build*
 Sources/Main.hx
 Sources/arm/node*
+Assets/_imagelist.txt
