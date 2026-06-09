@@ -2,12 +2,16 @@
 A short roller ball game example made with Armory3D.
 
 
-# Pre-requisites & Setup
+## Pre-requisites & Setup
 - [Blender 4.5](https://www.blender.org/download/lts/4-5/)
 - [Armory3D](https://armory3d.org/engine/) ([`main` branch](https://github.com/armory3d/armory))
 - [Armor 64's pre-requisites](https://github.com/moisesjpelaez/armor_64#pre-requisites) (for Nintendo 64 builds)
 
 Use `git clone --recursive https://github.com/moisesjpelaez/arm_ball.git` to clone the project with all the libraries.
+
+
+## Documentation
+https://hackmd.io/@moisesjpelaez/armor_ball
 
 
 ## Info & License
