@@ -40,11 +40,9 @@ class Init extends iron.Trait {
     }
 
     function init() {
-        // MainInstances.init(function() {
-            Gamepad.buttons = Gamepad.buttonsXBOX;
-            Music.init();
-            SoundEffects.init();
-            Scene.setActive(initialScene);
-        // });
+        Gamepad.buttons = Gamepad.buttonsXBOX;
+        Music.init();
+        SoundEffects.init();
+        Scene.setActive(initialScene);
     }
 }
