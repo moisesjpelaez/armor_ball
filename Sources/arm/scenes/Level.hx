@@ -11,6 +11,8 @@ import koui.utils.SceneManager;
 #if (kha_html5 || kha_debug_html5)
 import kha.SystemImpl;
 #end
+
+// Added to register button's `onHover`, `onFocus` and `onPressed` events.
 using armory.trait.internal.KouiCanvas.ElementExt;
 
 class Level extends GameScene {

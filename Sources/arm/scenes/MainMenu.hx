@@ -5,6 +5,8 @@ import armory.trait.internal.KouiCanvas;
 import iron.system.Input;
 import kha.System;
 import koui.elements.Button;
+
+// Added to register button's `onHover`, `onFocus` and `onPressed` events.
 using armory.trait.internal.KouiCanvas.ElementExt;
 
 class MainMenu extends GameScene {
