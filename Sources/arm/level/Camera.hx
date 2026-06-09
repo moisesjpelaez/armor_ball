@@ -15,6 +15,8 @@ class Camera extends iron.Trait {
         super();
 
         notifyOnInit(function() {
+            // Set near and far planes to better values for Desktop and Web builds.
+            // The N64 build needs lower values to avoid z-fighting issues.
             #if !arm_target_n64
             var camera: CameraObject = cast(object, CameraObject);
             camera.data.raw.near_plane = 0.01;

@@ -6,6 +6,7 @@ import iron.Scene;
 import kha.Color;
 import kha.graphics2.Graphics;
 
+// Base class for smooth scene transitions and initialization. All scenes should extend this class.
 class GameScene extends iron.Trait {
 	public var tween: Tween = new Tween();
 	var bgColor: Color = Color.Black;
@@ -23,6 +24,8 @@ class GameScene extends iron.Trait {
         });
     }
 
+    // Fades in the scene, then calls the onTransitionFinished callback when done.
+    // Can be called manually to trigger the fade-in effect at any time. Best being called after the scene's canvas is ready.
     function init() {
         fadeOut(function() {
             onTransitionFinished();
@@ -63,6 +66,7 @@ class GameScene extends iron.Trait {
         }).start();
     }
 
+    // Callback for when the fade-out transition finishes and the new scene is loaded. Can be overridden by subclasses to perform actions at that moment, such as starting music or playing a cutscene.
     public function onTransitionFinished() {
 
     }

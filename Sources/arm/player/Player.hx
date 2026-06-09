@@ -66,6 +66,7 @@ class Player extends iron.Trait {
 		#end
 
 		var direction: Vec2 = new Vec2();
+		// On mobile, use the device's motion sensor for input. On desktop and web, use gamepad or keyboard input.
 		#if (kha_html5 || kha_debug_html5)
 		if (SystemImpl.mobile) {
 			direction = new Vec2(sensor.y * 0.25, -sensor.x * 0.25);

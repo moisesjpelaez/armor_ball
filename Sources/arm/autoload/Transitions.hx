@@ -7,6 +7,8 @@ import kha.graphics2.Graphics;
 import kha.Color;
 import kha.System;
 
+// Creates a black background with a spinner when loading scenes on HTML5.
+// Only used in HTML5 since scenes first time loading take longer and show the world's background while doing it.
 class Transitions extends iron.Trait {
 	// Must be an instance since this is a Trait
 	public static final inst: Transitions = new Transitions();
