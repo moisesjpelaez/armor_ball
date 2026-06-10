@@ -48,6 +48,7 @@ class Splash extends GameScene {
 				elements[currentLogoIndex - 1].visible = false;
 				elements[currentLogoIndex].visible = true;
 				fadeOut(function() {
+					// FIXME: `Tween.delay` can only accept anonymous functions for n64 exports, investigate the root causes.
 					tween.delay(2.0, function() {
 						nextLogo();
 					}).start();
@@ -57,6 +58,7 @@ class Splash extends GameScene {
 	}
 
 	public override function onTransitionFinished() {
+		// FIXME: `Tween.delay` can only accept anonymous functions for n64 exports, investigate the root causes.
 		tween.delay(2.0, function() {
 			nextLogo();
 		}).start();
