@@ -34,3 +34,6 @@ Using:
 This project is licensed under the terms of the zlib License. See the [LICENSE](LICENSE.md) file for details.
 
 Music by [Brandon Morris](https://www.youtube.com/brandon75689) under the [OGA-BY-3.0](https://static.opengameart.org/OGA-BY-3.0.txt) license.
+
+## Demo Link
+Play or download the demo here: https://moisesjpelaez.itch.io/armor-ball
