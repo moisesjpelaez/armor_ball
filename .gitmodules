@@ -16,7 +16,7 @@
 	branch = runtime_theme_parser
 [submodule "Libraries/libdragon"]
 	path = Libraries/libdragon
-	url = https://github.com/DragonMinded/libdragon.git
+	url = https://github.com/n64brew/libdragon.git
 	branch = preview
 [submodule "Libraries/tiny3d"]
 	path = Libraries/tiny3d
