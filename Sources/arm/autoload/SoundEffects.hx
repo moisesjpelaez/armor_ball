@@ -41,16 +41,16 @@ class SoundEffects {
         setChannels("gem_collect", Assets.sounds.collect_coin);
 
         gameStartSound = Assets.sounds.game_start;
-        gameStartSoundHandle = Aura.createCompBufferChannel(gameStartSound, false, Aura.mixChannels["fx"]);
+        gameStartSoundHandle = Aura.createUncompBufferChannel(gameStartSound, false, Aura.mixChannels["fx"]);
 
         pausedSound = Assets.sounds.pause;
-        pausedSoundHandle = Aura.createCompBufferChannel(pausedSound, false, Aura.mixChannels["fx"]);
+        pausedSoundHandle = Aura.createUncompBufferChannel(pausedSound, false, Aura.mixChannels["fx"]);
 
         looseSound = Assets.sounds.loose;
-        looseSoundHandle = Aura.createCompBufferChannel(looseSound, false, Aura.mixChannels["fx"]);
+        looseSoundHandle = Aura.createUncompBufferChannel(looseSound, false, Aura.mixChannels["fx"]);
 
         winSound = Assets.sounds.win;
-        winSoundHandle = Aura.createCompBufferChannel(winSound, false, Aura.mixChannels["fx"]);
+        winSoundHandle = Aura.createUncompBufferChannel(winSound, false, Aura.mixChannels["fx"]);
 
         setChannels("button_press", Assets.sounds.button_pressed);
         #if (kha_html5 || kha_debug_html5)
@@ -101,7 +101,7 @@ class SoundEffects {
     static function setChannels(key: String, sound: Sound, ?channelsCount: Int = 4) {
         var handles: Array<BaseChannelHandle> = [];
         for (i in 0...channelsCount) {
-            handles.push(Aura.createCompBufferChannel(sound, false, Aura.mixChannels["fx"]));
+            handles.push(Aura.createUncompBufferChannel(sound, false, Aura.mixChannels["fx"]));
         }
         channels.set(key, handles);
     }

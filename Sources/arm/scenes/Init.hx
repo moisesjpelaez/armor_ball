@@ -21,10 +21,10 @@ class Init extends iron.Trait {
         Aura.init({channelSize: 32});
         Assets.loadEverything(function () {
             var loadConfig: AuraLoadConfig = {
-                compressed: Assets.sounds.names
+                uncompressed: Assets.sounds.names
             };
 
-            if (loadConfig != null && loadConfig.compressed != null && loadConfig.compressed.length > 0) {
+            if (loadConfig != null && loadConfig.uncompressed != null && loadConfig.uncompressed.length > 0) {
                 Aura.loadAssets(loadConfig, function() {
                     notifyOnInit(init);
                 }, function () {

@@ -29,13 +29,13 @@ class Music {
         Aura.mixChannels["music"].setVolume(volume);
 
         menuMusic = Assets.sounds.menu;
-        menuMusicHandle = Aura.createCompBufferChannel(menuMusic, true, Aura.mixChannels["music"]);
+        menuMusicHandle = Aura.createUncompBufferChannel(menuMusic, true, Aura.mixChannels["music"]);
 
         levelMusic = Assets.sounds.level;
-        levelMusicHandle = Aura.createCompBufferChannel(levelMusic, true, Aura.mixChannels["music"]);
+        levelMusicHandle = Aura.createUncompBufferChannel(levelMusic, true, Aura.mixChannels["music"]);
 
         winMusic = Assets.sounds.winner;
-        winMusicHandle = Aura.createCompBufferChannel(winMusic, true, Aura.mixChannels["music"]);
+        winMusicHandle = Aura.createUncompBufferChannel(winMusic, true, Aura.mixChannels["music"]);
 
         GameEvents.sceneLoaded.connect(onSceneLoaded);
         GameEvents.sceneChangeStarted.connect(onSceneChangeStarted);
