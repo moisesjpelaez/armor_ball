@@ -18,8 +18,10 @@ class Init extends iron.Trait {
         #if (kha_html5 || kha_debug_html5)
 		Transitions.inst.init();
 		#end
+
         Aura.init({channelSize: 32});
         Assets.loadEverything(function () {
+            // TODO: add directives for HTML5 compressed audio (armor_64 needs to be updated).
             var loadConfig: AuraLoadConfig = {
                 uncompressed: Assets.sounds.names
             };
