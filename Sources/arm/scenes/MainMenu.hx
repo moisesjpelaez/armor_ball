@@ -29,7 +29,7 @@ class MainMenu extends GameScene {
 			gamepad = Input.getGamepad();
 			canvas = object.getTrait(KouiCanvas);
 			canvas.notifyOnReady(function() {
-				playButton = canvas.getElementFromSceneAs(Button, "MainMenu", "menu_buttons/play_button");
+				playButton = canvas.getElementAs(Button, "menu_buttons/play_button", "MainMenu");
 				playButton.onHover(function() {
 					GameEvents.buttonSelected.emit();
 				});
@@ -42,7 +42,7 @@ class MainMenu extends GameScene {
 					GameEvents.gameStarted.emit();
 				});
 
-				infoButton = canvas.getElementFromSceneAs(Button, "MainMenu", "menu_buttons/info_button");
+				infoButton = canvas.getElementAs(Button, "menu_buttons/info_button", "MainMenu");
 				infoButton.onHover(function() {
 					GameEvents.buttonSelected.emit();
 				});
@@ -55,7 +55,7 @@ class MainMenu extends GameScene {
 					GameEvents.buttonPressed.emit();
 				});
 
-				quitButton = canvas.getElementFromSceneAs(Button, "MainMenu", "menu_buttons/quit_button");
+				quitButton = canvas.getElementAs(Button, "menu_buttons/quit_button", "MainMenu");
 				#if (kha_krom || hl)
 				quitButton.onHover(function() {
 					GameEvents.buttonSelected.emit();
@@ -74,7 +74,7 @@ class MainMenu extends GameScene {
 				infoButton.focusDown = playButton;
 				#end
 
-				backButton = canvas.getElementFromSceneAs(Button, "Info", "back_button");
+				backButton = canvas.getElementAs(Button, "back_button", "Info");
 				backButton.onHover(function() {
 					GameEvents.buttonSelected.emit();
 				});

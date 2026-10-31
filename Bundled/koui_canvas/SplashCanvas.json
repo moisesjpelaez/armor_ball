@@ -1,6 +1,6 @@
 {
 	"name": "SplashCanvas",
-	"version": "1.1",
+	"version": "2.0",
 	"canvas": {
 		"width": 320,
 		"height": 240,
@@ -12,6 +12,12 @@
 			"scaleVertical": false
 		}
 	},
+	"radioGroups": [
+		{
+			"id": "RadioGroup",
+			"activeButton": null
+		}
+	],
 	"scenes": [
 		{
 			"key": "Scene_1",
@@ -28,7 +34,7 @@
 					"anchor": 4,
 					"visible": true,
 					"disabled": false,
-					"parentKey": null,
+					"parent": "",
 					"focusUp": null,
 					"focusDown": null,
 					"focusLeft": null,
@@ -49,7 +55,7 @@
 					"anchor": 4,
 					"visible": false,
 					"disabled": false,
-					"parentKey": null,
+					"parent": "",
 					"focusUp": null,
 					"focusDown": null,
 					"focusLeft": null,
@@ -67,15 +73,13 @@
 					"anchor": 1,
 					"visible": true,
 					"disabled": false,
-					"parentKey": "frameworks",
+					"parent": "frameworks",
 					"focusUp": null,
 					"focusDown": null,
 					"focusLeft": null,
 					"focusRight": null,
 					"properties": {
-						"text": "Powered by",
-						"alignmentHor": 0,
-						"alignmentVert": 0
+						"text": "Powered by"
 					}
 				},
 				{
@@ -89,7 +93,7 @@
 					"anchor": 4,
 					"visible": false,
 					"disabled": false,
-					"parentKey": "frameworks",
+					"parent": "frameworks",
 					"focusUp": null,
 					"focusDown": null,
 					"focusLeft": null,
@@ -107,7 +111,7 @@
 					"anchor": 4,
 					"visible": true,
 					"disabled": false,
-					"parentKey": "console",
+					"parent": "frameworks/console",
 					"focusUp": null,
 					"focusDown": null,
 					"focusLeft": null,
@@ -128,15 +132,13 @@
 					"anchor": 7,
 					"visible": true,
 					"disabled": false,
-					"parentKey": "console",
+					"parent": "frameworks/console",
 					"focusUp": null,
 					"focusDown": null,
 					"focusLeft": null,
 					"focusRight": null,
 					"properties": {
-						"text": "Armory 3D",
-						"alignmentHor": 0,
-						"alignmentVert": 0
+						"text": "Armory 3D"
 					}
 				},
 				{
@@ -150,7 +152,7 @@
 					"anchor": 4,
 					"visible": true,
 					"disabled": false,
-					"parentKey": "frameworks",
+					"parent": "frameworks",
 					"focusUp": null,
 					"focusDown": null,
 					"focusLeft": null,
@@ -168,7 +170,7 @@
 					"anchor": 4,
 					"visible": true,
 					"disabled": false,
-					"parentKey": "non_console",
+					"parent": "frameworks/non_console",
 					"focusUp": null,
 					"focusDown": null,
 					"focusLeft": null,
@@ -186,7 +188,7 @@
 					"anchor": 1,
 					"visible": true,
 					"disabled": false,
-					"parentKey": "armory",
+					"parent": "frameworks/non_console/armory",
 					"focusUp": null,
 					"focusDown": null,
 					"focusLeft": null,
@@ -207,15 +209,13 @@
 					"anchor": 7,
 					"visible": true,
 					"disabled": false,
-					"parentKey": "armory",
+					"parent": "frameworks/non_console/armory",
 					"focusUp": null,
 					"focusDown": null,
 					"focusLeft": null,
 					"focusRight": null,
 					"properties": {
-						"text": "Armory 3D",
-						"alignmentHor": 0,
-						"alignmentVert": 0
+						"text": "Armory 3D"
 					}
 				},
 				{
@@ -229,7 +229,7 @@
 					"anchor": 4,
 					"visible": true,
 					"disabled": false,
-					"parentKey": "non_console",
+					"parent": "frameworks/non_console",
 					"focusUp": null,
 					"focusDown": null,
 					"focusLeft": null,
@@ -247,7 +247,7 @@
 					"anchor": 1,
 					"visible": true,
 					"disabled": false,
-					"parentKey": "kha",
+					"parent": "frameworks/non_console/kha",
 					"focusUp": null,
 					"focusDown": null,
 					"focusLeft": null,
@@ -268,15 +268,13 @@
 					"anchor": 7,
 					"visible": true,
 					"disabled": false,
-					"parentKey": "kha",
+					"parent": "frameworks/non_console/kha",
 					"focusUp": null,
 					"focusDown": null,
 					"focusLeft": null,
 					"focusRight": null,
 					"properties": {
-						"text": "Kha",
-						"alignmentHor": 0,
-						"alignmentVert": 0
+						"text": "Kha"
 					}
 				},
 				{
@@ -290,7 +288,7 @@
 					"anchor": 4,
 					"visible": false,
 					"disabled": false,
-					"parentKey": null,
+					"parent": "",
 					"focusUp": null,
 					"focusDown": null,
 					"focusLeft": null,
@@ -311,7 +309,7 @@
 					"anchor": 4,
 					"visible": false,
 					"disabled": false,
-					"parentKey": null,
+					"parent": "",
 					"focusUp": null,
 					"focusDown": null,
 					"focusLeft": null,

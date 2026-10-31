@@ -50,11 +50,11 @@ class Level extends GameScene {
 			canvas = object.getTrait(KouiCanvas);
 			canvas.notifyOnReady(function() {
 				// InGame
-				igScoreLabel = canvas.getElementFromSceneAs(Label, "InGame", "score_label");
+				igScoreLabel = canvas.getElementAs(Label, "score_label", "InGame");
 				igScoreLabel.text = "Score: " + score + Std.string("/" + totalScore);
 				#if (kha_html5 || kha_debug_html5)
 				if (SystemImpl.mobile) {
-					igPauseButton = canvas.getElementFromSceneAs(Button, "InGame", "pause_button");
+					igPauseButton = canvas.getElementAs(Button, "pause_button", "InGame");
 					igPauseButton.visible = true;
 					igPauseButton.disabled = false;
 					igPauseButton.onPressed(function() {
@@ -64,7 +64,7 @@ class Level extends GameScene {
 				#end
 
 				// Pause
-				pResumeButton = canvas.getElementFromSceneAs(Button, "Paused", "buttons/resume_button");
+				pResumeButton = canvas.getElementAs(Button, "buttons/resume_button", "Paused");
 				pResumeButton.onHover(function() {
 					GameEvents.buttonSelected.emit();
 				});
@@ -77,7 +77,7 @@ class Level extends GameScene {
 					GameEvents.buttonPressed.emit();
 				});
 
-				pRestartButton = canvas.getElementFromSceneAs(Button, "Paused", "buttons/restart_button");
+				pRestartButton = canvas.getElementAs(Button, "buttons/restart_button", "Paused");
 				pRestartButton.onHover(function() {
 					GameEvents.buttonSelected.emit();
 				});
@@ -91,7 +91,7 @@ class Level extends GameScene {
 					SceneManager.clearScenes();
 				});
 
-				pMenuButton = canvas.getElementFromSceneAs(Button, "Paused", "buttons/menu_button");
+				pMenuButton = canvas.getElementAs(Button, "buttons/menu_button", "Paused");
 				pMenuButton.onHover(function() {
 					GameEvents.buttonSelected.emit();
 				});
@@ -106,7 +106,7 @@ class Level extends GameScene {
 				});
 
 				// Win
-				wMenuButton = canvas.getElementFromSceneAs(Button, "Win", "buttons/menu_button");
+				wMenuButton = canvas.getElementAs(Button, "buttons/menu_button", "Win");
 				wMenuButton.onHover(function() {
 					GameEvents.buttonSelected.emit();
 				});
@@ -119,7 +119,7 @@ class Level extends GameScene {
 					SceneManager.clearScenes();
 				});
 
-				wContinueButton = canvas.getElementFromSceneAs(Button, "Win", "buttons/continue_button");
+				wContinueButton = canvas.getElementAs(Button, "buttons/continue_button", "Win");
 				wContinueButton.onHover(function() {
 					GameEvents.buttonSelected.emit();
 				});

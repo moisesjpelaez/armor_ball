@@ -1,6 +1,6 @@
 {
 	"name": "WinCanvas",
-	"version": "1.1",
+	"version": "2.0",
 	"canvas": {
 		"width": 320,
 		"height": 240,
@@ -12,6 +12,12 @@
 			"scaleVertical": false
 		}
 	},
+	"radioGroups": [
+		{
+			"id": "RadioGroup",
+			"activeButton": null
+		}
+	],
 	"scenes": [
 		{
 			"key": "Scene_1",
@@ -28,15 +34,13 @@
 					"anchor": 1,
 					"visible": true,
 					"disabled": false,
-					"parentKey": null,
+					"parent": "",
 					"focusUp": null,
 					"focusDown": null,
 					"focusLeft": null,
 					"focusRight": null,
 					"properties": {
-						"text": "Winner",
-						"alignmentHor": 0,
-						"alignmentVert": 0
+						"text": "Winner"
 					}
 				},
 				{
@@ -50,15 +54,13 @@
 					"anchor": 7,
 					"visible": true,
 					"disabled": false,
-					"parentKey": null,
+					"parent": "",
 					"focusUp": null,
 					"focusDown": null,
 					"focusLeft": null,
 					"focusRight": null,
 					"properties": {
-						"text": "thanks for playing!",
-						"alignmentHor": 0,
-						"alignmentVert": 0
+						"text": "thanks for playing!"
 					}
 				},
 				{
@@ -72,7 +74,7 @@
 					"anchor": 7,
 					"visible": true,
 					"disabled": false,
-					"parentKey": null,
+					"parent": "",
 					"focusUp": null,
 					"focusDown": null,
 					"focusLeft": null,

@@ -20,6 +20,9 @@ class Init extends iron.Trait {
 		#end
 
         Aura.init({channelSize: 32});
+        #if arm_target_n64
+        notifyOnInit(init);
+        #else
         Assets.loadEverything(function () {
             var loadConfig: AuraLoadConfig = {
                 #if (kha_html5 || kha_debug_html5)
@@ -45,6 +48,7 @@ class Init extends iron.Trait {
                 notifyOnInit(init);
             }
         });
+        #end
     }
 
     function init() {
